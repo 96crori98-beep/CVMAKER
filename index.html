@@ -22,7 +22,6 @@
       --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
       --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
 
-      /* Resume page size */
       --a4w: 210mm;
       --a4h: 297mm;
     }
@@ -101,7 +100,7 @@
       padding: 12px 28px;
       border-radius: 12px;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
       text-decoration:none;
       cursor:pointer;
       transition: all .25s ease;
@@ -128,6 +127,24 @@
       color: var(--primary);
       transform: translateY(-1px);
     }
+
+    .btn-small{
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .btn-danger{
+      background: #fff1f2;
+      color: #9f1239;
+      border: 2px solid #fecdd3;
+    }
+    .btn-ghost{
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 2px solid #e2e8f0;
+    }
+    .btn-ghost:hover{ border-color: var(--primary); color: var(--primary); }
 
     /* ===== HERO ===== */
     .hero{
@@ -167,7 +184,7 @@
       background:white;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--primary);
       box-shadow: var(--shadow);
       margin-bottom: 22px;
@@ -192,6 +209,7 @@
       color: var(--gray);
       margin-bottom: 30px;
       max-width: 520px;
+      font-weight: 650;
     }
     .hero-buttons{
       display:flex;
@@ -214,8 +232,9 @@
     .stat-label{
       font-size: 14px;
       color: var(--gray);
-      font-weight: 600;
+      font-weight: 700;
     }
+
     .hero-visual{ position:relative; }
     .resume-preview{
       background:white;
@@ -244,12 +263,12 @@
       font-size: 14px;
       color: var(--gray);
       margin-top: 4px;
-      font-weight: 600;
+      font-weight: 700;
     }
     .preview-section{ margin-bottom: 16px; }
     .preview-section-title{
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--dark);
@@ -290,7 +309,7 @@
     .section-subtitle{
       font-size: 17px;
       color: var(--gray);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* ===== TEMPLATES GRID ===== */
@@ -343,7 +362,7 @@
     }
     .mini-name{
       font-size: 9px;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--dark);
       letter-spacing: 0.08em;
     }
@@ -366,26 +385,32 @@
       font-size: 12px;
       color: var(--gray);
       margin-bottom: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
-    .template-btn{
-      display:block;
-      width: 100%;
+
+    /* new: template action row */
+    .template-actions{
+      display:flex;
+      gap: 10px;
+    }
+    .template-actions button{
+      flex:1;
       padding: 10px;
-      background: var(--light);
-      color: var(--primary);
-      border:none;
       border-radius: 10px;
-      font-size: 13px;
-      font-weight: 800;
-      text-align:center;
+      font-size: 12.5px;
+      font-weight: 900;
       cursor:pointer;
+      border: 2px solid var(--gray-light);
+      background: var(--light);
+      color: var(--dark);
       transition: all .2s;
     }
-    .template-card:hover .template-btn{
-      background: var(--primary);
-      color:white;
+    .template-actions button.primary{
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-color: transparent;
+      color: #fff;
     }
+    .template-actions button:hover{ transform: translateY(-1px); border-color: var(--primary); }
 
     /* ===== FEATURES / HOW / TESTIMONIALS / CTA / FOOTER ===== */
     .features{
@@ -428,7 +453,7 @@
     .feature-desc{
       font-size: 15px;
       color: var(--gray);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.7;
     }
 
@@ -465,7 +490,7 @@
     .step-desc{
       font-size: 15px;
       color: var(--gray);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.7;
     }
 
@@ -492,7 +517,7 @@
     .testimonial-text{
       font-size: 15px;
       color: var(--dark);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.7;
       margin-bottom: 20px;
     }
@@ -507,7 +532,7 @@
       font-size: 16px;
     }
     .testimonial-name{ font-weight: 900; font-size: 15px; }
-    .testimonial-role{ font-size: 13px; color: var(--gray); font-weight: 600; }
+    .testimonial-role{ font-size: 13px; color: var(--gray); font-weight: 700; }
 
     .cta{
       padding: 100px 24px;
@@ -528,9 +553,8 @@
       margin-bottom: 40px;
       max-width: 560px;
       margin-left:auto; margin-right:auto;
-      font-weight: 600;
+      font-weight: 700;
     }
-    .cta-btn{ padding: 16px 40px; font-size: 17px; }
 
     footer{
       background: #020617;
@@ -548,7 +572,7 @@
       font-size: 15px;
       margin-top: 16px;
       line-height: 1.7;
-      font-weight: 600;
+      font-weight: 700;
     }
     .footer-title{
       font-weight: 900;
@@ -565,7 +589,7 @@
       text-decoration:none;
       font-size: 14px;
       transition: color .2s;
-      font-weight: 600;
+      font-weight: 700;
     }
     .footer-links a:hover{ color: white; }
     .footer-bottom{
@@ -580,10 +604,10 @@
     .footer-bottom p{
       color: rgba(255,255,255,0.5);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    /* ===== BUILDER MODAL (single-page app style) ===== */
+    /* ===== BUILDER MODAL ===== */
     .builder-overlay{
       position: fixed;
       inset: 0;
@@ -629,22 +653,10 @@
       border: 1px solid var(--gray-light);
       background: var(--light);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--gray);
     }
     .builder-actions{ display:flex; gap: 10px; flex-wrap: wrap; justify-content:flex-end; }
-
-    .btn-small{
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .btn-danger{
-      background: #fff1f2;
-      color: #9f1239;
-      border: 2px solid #fecdd3;
-    }
 
     .builder{
       display:grid;
@@ -672,7 +684,7 @@
     .form-group label{
       display:block;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       color: #334155;
       margin-bottom: 5px;
     }
@@ -722,7 +734,7 @@
     .muted{
       font-size: 12px;
       color: var(--gray);
-      font-weight: 700;
+      font-weight: 800;
     }
     .row-actions{
       display:flex;
@@ -755,7 +767,7 @@
       justify-content:center;
     }
 
-    /* ===== RESUME (base structure) ===== */
+    /* ===== RESUME PAGE ===== */
     .resume-page{
       width: var(--a4w);
       min-height: var(--a4h);
@@ -765,15 +777,18 @@
       border: 1px solid rgba(15,23,42,.08);
       overflow:hidden;
     }
+    .resume-inner{ padding: 44px 54px; }
 
-    .resume-inner{
-      padding: 44px 54px;
-    }
-
-    /* Base type */
-    .resume-page, .resume-page *{
-      font-family: Inter, sans-serif;
-      color: #0f172a;
+    /* colored section system (per template) */
+    #resumePage{
+      --sec-exp: linear-gradient(135deg, #6366f1, #06b6d4);
+      --sec-skill: linear-gradient(135deg, #10b981, #06b6d4);
+      --sec-edu: linear-gradient(135deg, #7c3aed, #6366f1);
+      --sec-lang: linear-gradient(135deg, #f59e0b, #ef4444);
+      --sec-hobby: linear-gradient(135deg, #f59e0b, #6366f1);
+      --sec-sum: linear-gradient(135deg, #0f172a, #334155);
+      --sec-custom: linear-gradient(135deg, #06b6d4, #6366f1);
+      --sec-border: rgba(15,23,42,.10);
     }
 
     /* Header */
@@ -795,7 +810,7 @@
     }
     .r-title{
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
       color: #64748b;
       margin-top: 4px;
     }
@@ -805,7 +820,7 @@
       gap: 8px 16px;
       font-size: 12.5px;
       color: #64748b;
-      font-weight: 700;
+      font-weight: 800;
       margin-top: 10px;
     }
     .r-contact span{ color: #64748b; }
@@ -819,22 +834,47 @@
     }
     .r-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-    /* Sections */
     .r-section{ margin-bottom: 18px; }
+
+    /* NEW: Colored section headers */
     .r-sec-head{
       display:flex;
-      align-items:baseline;
+      align-items:center;
       justify-content:space-between;
       gap: 12px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--sec-border);
+      margin-bottom: 12px;
+      background: #fff;
+    }
+    .r-sec-head .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
       font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.10em;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 6px;
-      margin-bottom: 12px;
+      color: #0f172a;
     }
-    .r-sec-head span{ color: #0f172a; }
+    .r-sec-head .tag i{
+      width: 16px;
+      height: 16px;
+      border-radius: 6px;
+      display:inline-block;
+      background: var(--sec-sum);
+      box-shadow: 0 8px 20px rgba(15,23,42,.15);
+    }
+    .r-sec-head[data-sec="summary"] .tag i{ background: var(--sec-sum); }
+    .r-sec-head[data-sec="experience"] .tag i{ background: var(--sec-exp); }
+    .r-sec-head[data-sec="education"] .tag i{ background: var(--sec-edu); }
+    .r-sec-head[data-sec="skills"] .tag i{ background: var(--sec-skill); }
+    .r-sec-head[data-sec="tools"] .tag i{ background: var(--sec-skill); }
+    .r-sec-head[data-sec="languages"] .tag i{ background: var(--sec-lang); }
+    .r-sec-head[data-sec="hobbies"] .tag i{ background: var(--sec-hobby); }
+    .r-sec-head[data-sec="custom"] .tag i{ background: var(--sec-custom); }
+
     .r-item{ margin-bottom: 14px; }
     .r-item-head{
       display:flex;
@@ -843,26 +883,23 @@
       gap: 10px;
       margin-bottom: 4px;
     }
-    .r-item-title{
-      font-weight: 800;
-      font-size: 14.5px;
-    }
+    .r-item-title{ font-weight: 900; font-size: 14.5px; }
     .r-item-date{
       font-size: 12.5px;
       color: #64748b;
-      font-weight: 700;
+      font-weight: 800;
       white-space:nowrap;
     }
     .r-item-sub{
       font-size: 13.2px;
       color: #64748b;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 6px;
     }
     .r-desc{
       font-size: 13.5px;
       color: #334155;
-      font-weight: 600;
+      font-weight: 650;
       line-height: 1.62;
       white-space: pre-wrap;
     }
@@ -870,12 +907,17 @@
     .chips{ display:flex; flex-wrap:wrap; gap: 8px; }
     .chip{
       padding: 6px 12px;
-      background: #f1f5f9;
       border-radius: 10px;
       font-size: 12.5px;
+      font-weight: 800;
+      border: 1px solid rgba(15,23,42,.08);
+      background: #f1f5f9;
       color: #334155;
-      font-weight: 700;
     }
+    /* color chips by section */
+    .chips[data-sec="skills"] .chip{ background: rgba(16,185,129,.10); border-color: rgba(16,185,129,.18); }
+    .chips[data-sec="tools"] .chip{ background: rgba(6,182,212,.10); border-color: rgba(6,182,212,.18); }
+    .chips[data-sec="hobbies"] .chip{ background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.20); }
 
     /* Bright experience badge */
     .exp-badge{
@@ -884,40 +926,30 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      background: var(--sec-exp);
       color: white !important;
       font-size: 11px;
       font-weight: 900;
       letter-spacing: normal;
       text-transform:none;
       white-space:nowrap;
-      border: 1px solid rgba(15,23,42,.08);
+      border: 1px solid rgba(255,255,255,.20);
       box-shadow: 0 12px 28px rgba(99,102,241,.22);
     }
 
     /* ===== TEMPLATE THEMES (10) ===== */
-    /* Shared hook: #resumePage.tpl-xxx */
-    #resumePage{
-      --tpl-accent: #6366f1;
-      --tpl-accent2: #06b6d4;
-      --tpl-dark: #0f172a;
-      --tpl-muted: #64748b;
-      --tpl-border: #e2e8f0;
-      --tpl-chip-bg: #f1f5f9;
-      --tpl-bg: #ffffff;
-    }
-
     /* Minimalist */
     #resumePage.tpl-minimalist{
-      --tpl-accent: #0f172a;
-      --tpl-accent2: #0f172a;
-      --tpl-chip-bg: #f1f5f9;
+      --sec-exp: linear-gradient(135deg, #0f172a, #334155);
+      --sec-skill: linear-gradient(135deg, #0f172a, #334155);
+      --sec-edu: linear-gradient(135deg, #0f172a, #334155);
+      --sec-lang: linear-gradient(135deg, #0f172a, #334155);
+      --sec-hobby: linear-gradient(135deg, #0f172a, #334155);
+      --sec-custom: linear-gradient(135deg, #0f172a, #334155);
     }
 
-    /* Modern (two-column feel) */
-    #resumePage.tpl-modern .resume-inner{
-      padding: 0;
-    }
+    /* Modern */
+    #resumePage.tpl-modern .resume-inner{ padding: 0; }
     #resumePage.tpl-modern .resume-layout{
       display:grid;
       grid-template-columns: 34% 66%;
@@ -928,9 +960,7 @@
       padding: 38px 24px;
       border-right: 1px solid rgba(15,23,42,.08);
     }
-    #resumePage.tpl-modern .main-rail{
-      padding: 38px 40px;
-    }
+    #resumePage.tpl-modern .main-rail{ padding: 38px 40px; }
     #resumePage.tpl-modern .r-header{
       border-bottom: 1px solid rgba(15,23,42,.12);
       margin-bottom: 14px;
@@ -948,12 +978,7 @@
     #resumePage.tpl-modern .r-title{ text-align:center; }
     #resumePage.tpl-modern .r-contact{ justify-content:center; }
 
-    #resumePage.tpl-modern .r-sec-head{
-      border-bottom: 1px solid rgba(15,23,42,.10);
-      color: var(--tpl-accent);
-    }
-
-    /* Bold (dark background, light text) */
+    /* Bold */
     #resumePage.tpl-bold{
       background: #0b1220;
     }
@@ -967,111 +992,61 @@
     #resumePage.tpl-bold .resume-page *{
       color: #e5e7eb !important;
     }
-    #resumePage.tpl-bold .r-header{
-      border-bottom: 2px solid #6366f1;
-    }
+    #resumePage.tpl-bold .r-header{ border-bottom: 2px solid rgba(99,102,241,.9); }
     #resumePage.tpl-bold .r-title,
     #resumePage.tpl-bold .r-contact span,
     #resumePage.tpl-bold .r-item-date,
     #resumePage.tpl-bold .r-item-sub,
-    #resumePage.tpl-bold .r-desc{
-      color: rgba(229,231,235,.80) !important;
-    }
+    #resumePage.tpl-bold .r-desc{ color: rgba(229,231,235,.82) !important; }
     #resumePage.tpl-bold .r-sec-head{
-      border-bottom: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.12);
     }
-    #resumePage.tpl-bold .chip{
-      background: rgba(255,255,255,.10);
-      color: #e5e7eb !important;
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    #resumePage.tpl-bold .exp-badge{
-      background: linear-gradient(135deg, #6366f1, #06b6d4);
-      color: #0b1220 !important;
-    }
+    #resumePage.tpl-bold .r-sec-head .tag{ color: #e5e7eb; }
+    #resumePage.tpl-bold .chip{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.12); color: #e5e7eb !important; }
+    #resumePage.tpl-bold{ --sec-exp: linear-gradient(135deg, #6366f1, #06b6d4); --sec-skill: linear-gradient(135deg, #10b981, #06b6d4); --sec-edu: linear-gradient(135deg, #7c3aed, #6366f1); --sec-lang: linear-gradient(135deg, #f59e0b, #ef4444); --sec-hobby: linear-gradient(135deg, #f59e0b, #6366f1); --sec-custom: linear-gradient(135deg, #06b6d4, #6366f1); }
 
-    /* Executive (Playfair headings) */
+    /* Executive */
     #resumePage.tpl-executive .r-name{
       font-family: "Playfair Display", serif;
       font-weight: 700;
       letter-spacing: 0;
     }
-    #resumePage.tpl-executive .r-sec-head span{
-      font-family: Montserrat, sans-serif;
-      font-weight: 900;
-    }
 
-    /* Creative (accent stripe) */
-    #resumePage.tpl-creative .r-header{
-      border-bottom: 2px solid #ef4444;
-    }
-    #resumePage.tpl-creative .exp-badge{
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-    }
-    #resumePage.tpl-creative .chip{
-      background: rgba(245,158,11,.14);
-      border: 1px solid rgba(245,158,11,.25);
-    }
+    /* Creative */
+    #resumePage.tpl-creative{ --sec-exp: linear-gradient(135deg, #f59e0b, #ef4444); --sec-skill: linear-gradient(135deg, #ef4444, #6366f1); --sec-edu: linear-gradient(135deg, #6366f1, #06b6d4); --sec-lang: linear-gradient(135deg, #f59e0b, #6366f1); --sec-hobby: linear-gradient(135deg, #f59e0b, #ef4444); --sec-custom: linear-gradient(135deg, #06b6d4, #ef4444); }
 
-    /* Technical (monospace vibe) */
-    #resumePage.tpl-technical .resume-page, 
+    /* Technical */
+    #resumePage.tpl-technical .resume-page,
     #resumePage.tpl-technical .resume-page *{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
     }
-    #resumePage.tpl-technical .r-header{
-      border-bottom: 1px solid #06b6d4;
-    }
-    #resumePage.tpl-technical .r-sec-head{
-      border-bottom: 1px solid rgba(6,182,212,.30);
-    }
-    #resumePage.tpl-technical .exp-badge{
-      background: linear-gradient(135deg, #06b6d4, #10b981);
-    }
+    #resumePage.tpl-technical{ --sec-exp: linear-gradient(135deg, #06b6d4, #10b981); --sec-skill: linear-gradient(135deg, #06b6d4, #6366f1); --sec-edu: linear-gradient(135deg, #10b981, #06b6d4); --sec-lang: linear-gradient(135deg, #f59e0b, #10b981); --sec-hobby: linear-gradient(135deg, #f59e0b, #6366f1); --sec-custom: linear-gradient(135deg, #06b6d4, #10b981); }
 
-    /* Academic (purple accent, CV vibe) */
-    #resumePage.tpl-academic .r-sec-head{
-      border-bottom: 1px solid rgba(124,58,237,.25);
-    }
-    #resumePage.tpl-academic .exp-badge{
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-    }
+    /* Academic */
+    #resumePage.tpl-academic{ --sec-exp: linear-gradient(135deg, #7c3aed, #6366f1); --sec-skill: linear-gradient(135deg, #6366f1, #06b6d4); --sec-edu: linear-gradient(135deg, #7c3aed, #0f172a); --sec-lang: linear-gradient(135deg, #f59e0b, #7c3aed); --sec-hobby: linear-gradient(135deg, #f59e0b, #6366f1); --sec-custom: linear-gradient(135deg, #06b6d4, #7c3aed); }
 
-    /* Compact (tighter spacing) */
-    #resumePage.tpl-compact .resume-inner{
-      padding: 34px 44px;
-    }
+    /* Compact */
+    #resumePage.tpl-compact .resume-inner{ padding: 34px 44px; }
     #resumePage.tpl-compact .r-section{ margin-bottom: 14px; }
     #resumePage.tpl-compact .r-item{ margin-bottom: 10px; }
     #resumePage.tpl-compact .r-desc{ font-size: 13px; }
     #resumePage.tpl-compact .chip{ padding: 5px 10px; }
 
-    /* Infographic (slightly more color) */
-    #resumePage.tpl-infographic .r-sec-head{
-      color: #0f172a;
-      border-bottom: 2px solid rgba(16,185,129,.35);
-    }
-    #resumePage.tpl-infographic .chip{
-      background: rgba(16,185,129,.12);
-      border: 1px solid rgba(16,185,129,.20);
-    }
-    #resumePage.tpl-infographic .exp-badge{
-      background: linear-gradient(135deg, #10b981, #06b6d4);
+    /* Infographic */
+    #resumePage.tpl-infographic{ --sec-exp: linear-gradient(135deg, #10b981, #06b6d4); --sec-skill: linear-gradient(135deg, #06b6d4, #6366f1); --sec-edu: linear-gradient(135deg, #10b981, #6366f1); --sec-lang: linear-gradient(135deg, #f59e0b, #10b981); --sec-hobby: linear-gradient(135deg, #f59e0b, #06b6d4); --sec-custom: linear-gradient(135deg, #10b981, #6366f1); }
+
+    /* Simple */
+    #resumePage.tpl-simple{
+      --sec-exp: linear-gradient(135deg, #94a3b8, #64748b);
+      --sec-skill: linear-gradient(135deg, #94a3b8, #64748b);
+      --sec-edu: linear-gradient(135deg, #94a3b8, #64748b);
+      --sec-lang: linear-gradient(135deg, #94a3b8, #64748b);
+      --sec-hobby: linear-gradient(135deg, #94a3b8, #64748b);
+      --sec-custom: linear-gradient(135deg, #94a3b8, #64748b);
     }
 
-    /* Simple (ultra plain) */
-    #resumePage.tpl-simple .r-header{
-      border-bottom: 1px solid #cbd5e1;
-    }
-    #resumePage.tpl-simple .r-sec-head{
-      border-bottom: 1px solid #e2e8f0;
-      letter-spacing: 0.08em;
-    }
-    #resumePage.tpl-simple .chip{
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-
-    /* Modern template needs layout wrappers visible */
+    /* Modern template rails */
     .resume-layout{ display:block; }
     .left-rail, .main-rail{ display:block; }
 
@@ -1157,18 +1132,11 @@
         </div>
 
         <h1 class="hero-title">Build a Professional Resume That <span>Gets You Hired</span></h1>
-        <p class="hero-subtitle">Create an ATS-friendly resume in minutes. Choose from 10 professionally styled templates, customize with ease, and download as PDF.</p>
+        <p class="hero-subtitle">Create an ATS-friendly resume in minutes. Choose from 10 professionally styled templates, customize, and export.</p>
 
         <div class="hero-buttons">
-          <button class="btn btn-primary" onclick="scrollToId('templates')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Create My Resume
-          </button>
-          <button class="btn btn-outline" onclick="scrollToId('templates')">View Templates</button>
+          <button class="btn btn-primary" onclick="scrollToId('templates')">Create My Resume</button>
+          <button class="btn btn-outline" onclick="openImportDialogFromHome()">Import Resume</button>
         </div>
 
         <div class="hero-stats">
@@ -1178,7 +1146,7 @@
           </div>
           <div class="stat">
             <span class="stat-number">10</span>
-            <span class="stat-label">Pro Templates</span>
+            <span class="stat-label">Templates</span>
           </div>
           <div class="stat">
             <span class="stat-number">98%</span>
@@ -1191,7 +1159,7 @@
         <div class="resume-preview">
           <div class="preview-header">
             <div class="preview-name">JOHN ANDERSON</div>
-            <div class="preview-title">Senior Product Designer</div>
+            <div class="preview-title">Kitchen Assistant</div>
           </div>
           <div class="preview-section">
             <div class="preview-section-title">Experience</div>
@@ -1217,14 +1185,14 @@
   <section id="templates" class="templates">
     <div class="section-header">
       <p class="section-label">Professional Templates</p>
-      <h2 class="section-title">Choose Your Perfect Design</h2>
-      <p class="section-subtitle">10 ATS-friendly templates. All fully editable. Click one to open the builder instantly.</p>
+      <h2 class="section-title">Choose Your Template</h2>
+      <p class="section-subtitle">Each template includes: Create New CV + Import CV.</p>
     </div>
 
     <div class="templates-grid">
-      <!-- 1 -->
-      <div class="template-card" onclick="openBuilder('tpl-minimalist','The Minimalist')">
-        <div class="template-preview-mini">
+      <!-- Each template card: Create + Import -->
+      <div class="template-card">
+        <div class="template-preview-mini" onclick="openBuilderNew('tpl-minimalist','The Minimalist')">
           <div class="mini-resume">
             <div class="mini-header"><div class="mini-name">JOHN DOE</div></div>
             <div class="mini-line"></div><div class="mini-line short"></div>
@@ -1234,13 +1202,15 @@
         <div class="template-info">
           <h3 class="template-name">The Minimalist</h3>
           <p class="template-desc">Clean & elegant for most roles</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-minimalist','The Minimalist')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-minimalist','The Minimalist')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 2 -->
-      <div class="template-card" onclick="openBuilder('tpl-modern','The Modern')">
-        <div class="template-preview-mini" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);" onclick="openBuilderNew('tpl-modern','The Modern')">
           <div class="mini-resume" style="display:grid; grid-template-columns: 1fr 2fr; gap: 8px; background: transparent; box-shadow:none;">
             <div style="background: rgba(255,255,255,0.9); border-radius: 8px; padding: 8px;"><div class="mini-line" style="background:#6366f1"></div></div>
             <div style="background: white; border-radius: 8px; padding: 8px;"><div class="mini-line"></div><div class="mini-line short"></div></div>
@@ -1249,13 +1219,15 @@
         <div class="template-info">
           <h3 class="template-name">The Modern</h3>
           <p class="template-desc">Two-column, modern feel</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-modern','The Modern')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-modern','The Modern')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 3 -->
-      <div class="template-card" onclick="openBuilder('tpl-bold','The Bold')">
-        <div class="template-preview-mini" style="background:#0f172a;">
+      <div class="template-card">
+        <div class="template-preview-mini" style="background:#0f172a;" onclick="openBuilderNew('tpl-bold','The Bold')">
           <div class="mini-resume" style="background: transparent; box-shadow:none; color:white;">
             <div style="text-align:center; border-bottom: 2px solid #6366f1; padding-bottom: 8px; margin-bottom: 8px;">
               <div style="font-size: 10px; font-weight: 900; letter-spacing: 0.1em;">NAME</div>
@@ -1267,13 +1239,15 @@
         <div class="template-info">
           <h3 class="template-name">The Bold</h3>
           <p class="template-desc">High contrast, creative edge</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-bold','The Bold')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-bold','The Bold')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 4 -->
-      <div class="template-card" onclick="openBuilder('tpl-executive','The Executive')">
-        <div class="template-preview-mini">
+      <div class="template-card">
+        <div class="template-preview-mini" onclick="openBuilderNew('tpl-executive','The Executive')">
           <div class="mini-resume" style="font-family:'Playfair Display', serif;">
             <div style="text-align:center; border-bottom:1px solid #0f172a; padding-bottom:6px;">
               <div style="font-size: 10px; font-weight: 800; color:#0f172a;">Executive</div>
@@ -1284,13 +1258,15 @@
         <div class="template-info">
           <h3 class="template-name">The Executive</h3>
           <p class="template-desc">Sophisticated for senior roles</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-executive','The Executive')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-executive','The Executive')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 5 -->
-      <div class="template-card" onclick="openBuilder('tpl-creative','The Creative')">
-        <div class="template-preview-mini" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: linear-gradient(135deg, #f59e0b, #ef4444);" onclick="openBuilderNew('tpl-creative','The Creative')">
           <div class="mini-resume">
             <div style="display:flex; gap:8px;">
               <div style="width: 24px; height: 24px; background: linear-gradient(135deg, #f59e0b, #ef4444); border-radius: 50%;"></div>
@@ -1301,13 +1277,15 @@
         <div class="template-info">
           <h3 class="template-name">The Creative</h3>
           <p class="template-desc">Warm accents for designers</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-creative','The Creative')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-creative','The Creative')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 6 -->
-      <div class="template-card" onclick="openBuilder('tpl-technical','The Technical')">
-        <div class="template-preview-mini" style="background:#1e293b;">
+      <div class="template-card">
+        <div class="template-preview-mini" style="background:#1e293b;" onclick="openBuilderNew('tpl-technical','The Technical')">
           <div class="mini-resume" style="background:#0f172a; color:#06b6d4; font-family:monospace;">
             <div style="font-size: 8px; border-bottom: 1px solid #06b6d4; padding-bottom:4px;">&lt;developer&gt;</div>
             <div style="margin-top:8px;">
@@ -1319,13 +1297,15 @@
         <div class="template-info">
           <h3 class="template-name">The Technical</h3>
           <p class="template-desc">Perfect for devs & engineers</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-technical','The Technical')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-technical','The Technical')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 7 -->
-      <div class="template-card" onclick="openBuilder('tpl-academic','The Academic')">
-        <div class="template-preview-mini">
+      <div class="template-card">
+        <div class="template-preview-mini" onclick="openBuilderNew('tpl-academic','The Academic')">
           <div class="mini-resume">
             <div style="text-align:center;">
               <div style="font-size: 9px; font-weight: 900; color:#7c3aed; letter-spacing:.08em;">CURRICULUM VITAE</div>
@@ -1338,13 +1318,15 @@
         <div class="template-info">
           <h3 class="template-name">The Academic</h3>
           <p class="template-desc">CV style for academia</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-academic','The Academic')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-academic','The Academic')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 8 -->
-      <div class="template-card" onclick="openBuilder('tpl-compact','The Compact')">
-        <div class="template-preview-mini">
+      <div class="template-card">
+        <div class="template-preview-mini" onclick="openBuilderNew('tpl-compact','The Compact')">
           <div class="mini-resume" style="padding:8px;">
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 6px;">
               <div><div class="mini-line" style="height:4px;"></div><div class="mini-line" style="height:4px; width:80%"></div></div>
@@ -1355,13 +1337,15 @@
         <div class="template-info">
           <h3 class="template-name">The Compact</h3>
           <p class="template-desc">Fit more into one page</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-compact','The Compact')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-compact','The Compact')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 9 -->
-      <div class="template-card" onclick="openBuilder('tpl-infographic','The Infographic')">
-        <div class="template-preview-mini" style="background: linear-gradient(135deg, #10b981, #06b6d4);">
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: linear-gradient(135deg, #10b981, #06b6d4);" onclick="openBuilderNew('tpl-infographic','The Infographic')">
           <div class="mini-resume">
             <div style="display:flex; gap:6px; margin-bottom:6px;">
               <div style="width: 16px; height: 16px; background:#10b981; border-radius: 6px;"></div>
@@ -1374,13 +1358,15 @@
         <div class="template-info">
           <h3 class="template-name">The Infographic</h3>
           <p class="template-desc">Colorful, still ATS-clean</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-infographic','The Infographic')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-infographic','The Infographic')">Import CV</button>
+          </div>
         </div>
       </div>
 
-      <!-- 10 -->
-      <div class="template-card" onclick="openBuilder('tpl-simple','The Simple')">
-        <div class="template-preview-mini">
+      <div class="template-card">
+        <div class="template-preview-mini" onclick="openBuilderNew('tpl-simple','The Simple')">
           <div class="mini-resume" style="border: 2px solid #e2e8f0;">
             <div style="text-align:center;">
               <div style="font-size: 10px; font-weight: 800; color:#334155;">Simple & Clean</div>
@@ -1394,7 +1380,10 @@
         <div class="template-info">
           <h3 class="template-name">The Simple</h3>
           <p class="template-desc">Ultra straightforward format</p>
-          <button class="template-btn" type="button">Use Template</button>
+          <div class="template-actions">
+            <button class="primary" type="button" onclick="openBuilderNew('tpl-simple','The Simple')">Create New</button>
+            <button type="button" onclick="openBuilderImport('tpl-simple','The Simple')">Import CV</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1427,8 +1416,8 @@
             <path d="M2 12l10 5 10-5"></path>
           </svg>
         </div>
-        <h3 class="feature-title">10 Templates Included</h3>
-        <p class="feature-desc">Pick the style that matches your role, and customize the content instantly.</p>
+        <h3 class="feature-title">Create or Import</h3>
+        <p class="feature-desc">Start fresh or import a saved ResumeForge JSON. No account, no drama.</p>
       </div>
 
       <div class="feature-card">
@@ -1439,8 +1428,8 @@
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
         </div>
-        <h3 class="feature-title">PDF via Print</h3>
-        <p class="feature-desc">Download by printing to PDF. No watermarks. No nonsense.</p>
+        <h3 class="feature-title">Export Options</h3>
+        <p class="feature-desc">PDF (print), HTML download, JSON export/import. DOCX needs a library or backend.</p>
       </div>
 
       <div class="feature-card">
@@ -1451,8 +1440,8 @@
             <line x1="9" y1="21" x2="9" y2="9"></line>
           </svg>
         </div>
-        <h3 class="feature-title">Add Unlimited Sections</h3>
-        <p class="feature-desc">Experience, education, skills, languages, hobbies, plus custom extra sections.</p>
+        <h3 class="feature-title">Colored Sections</h3>
+        <p class="feature-desc">Experience, Skills, Education, Languages, etc. get template-based color accents.</p>
       </div>
 
       <div class="feature-card">
@@ -1474,7 +1463,7 @@
           </svg>
         </div>
         <h3 class="feature-title">Mobile Friendly</h3>
-        <p class="feature-desc">Works on phones, tablets, and desktops without melting down.</p>
+        <p class="feature-desc">Works on phones, tablets, and desktops without falling apart.</p>
       </div>
     </div>
   </section>
@@ -1483,7 +1472,7 @@
   <section id="how-it-works" class="how-it-works">
     <div class="section-header">
       <p class="section-label">Simple Process</p>
-      <h2 class="section-title">Build Your Resume in 3 Easy Steps</h2>
+      <h2 class="section-title">Build Your Resume in 3 Steps</h2>
     </div>
 
     <div class="steps-grid">
@@ -1494,83 +1483,22 @@
       </div>
       <div class="step-card">
         <div class="step-number">2</div>
-        <h3 class="step-title">Fill in Your Details</h3>
-        <p class="step-desc">Add experience, education, skills, languages, hobbies, and extra custom sections.</p>
+        <h3 class="step-title">Create or Import</h3>
+        <p class="step-desc">Start new, or import your saved ResumeForge JSON.</p>
       </div>
       <div class="step-card">
         <div class="step-number">3</div>
-        <h3 class="step-title">Download & Apply</h3>
-        <p class="step-desc">Print to PDF and start applying like it’s your job. Because it is.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="testimonials">
-    <div class="section-header">
-      <p class="section-label">Success Stories</p>
-      <h2 class="section-title">Loved by Job Seekers Worldwide</h2>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <p class="testimonial-text">"The Modern template looked premium. Got interviews fast."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SM</div>
-          <div><p class="testimonial-name">Sarah Mitchell</p><p class="testimonial-role">Marketing Director</p></div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <p class="testimonial-text">"Technical template was perfect for engineering. Clean and readable."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">DK</div>
-          <div><p class="testimonial-name">David Kim</p><p class="testimonial-role">Senior Developer</p></div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <p class="testimonial-text">"Compact template helped me fit everything on one page without looking cramped."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">EJ</div>
-          <div><p class="testimonial-name">Emily Johnson</p><p class="testimonial-role">HR Manager</p></div>
-        </div>
+        <h3 class="step-title">Export</h3>
+        <p class="step-desc">PDF (print), HTML, or JSON. DOCX needs a library or backend.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta">
-    <h2 class="cta-title">Ready to Land Your Dream Job?</h2>
-    <p class="cta-subtitle">Pick a template, fill your details, and download your resume. No signup. No drama.</p>
-    <button class="btn btn-primary cta-btn" onclick="scrollToId('templates')">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-        <polyline points="14 2 14 8 20 8"></polyline>
-      </svg>
-      Create My Resume Now
-    </button>
+    <h2 class="cta-title">Ready to Build?</h2>
+    <p class="cta-subtitle">Pick a template, fill your details, export what you need. No signup. No drama.</p>
+    <button class="btn btn-primary" onclick="scrollToId('templates')">Choose Template</button>
   </section>
 
   <!-- FOOTER -->
@@ -1646,7 +1574,11 @@
         </div>
 
         <div class="builder-actions">
-          <button class="btn btn-outline btn-small" type="button" onclick="window.print()">Print / PDF</button>
+          <button class="btn btn-outline btn-small" type="button" onclick="exportPDF()">Export PDF</button>
+          <button class="btn btn-ghost btn-small" type="button" onclick="exportHTML()">Export HTML</button>
+          <button class="btn btn-ghost btn-small" type="button" onclick="exportJSON()">Export JSON</button>
+          <button class="btn btn-ghost btn-small" type="button" onclick="importJSONClick()">Import JSON</button>
+          <button class="btn btn-ghost btn-small" type="button" onclick="exportDOCXInfo()">Export DOCX</button>
           <button class="btn btn-danger btn-small" type="button" onclick="resetBuilder()">Reset CV</button>
           <button class="btn btn-primary btn-small" type="button" onclick="closeBuilder()">Close</button>
         </div>
@@ -1728,11 +1660,11 @@
           <h3>Skills</h3>
           <div class="form-group">
             <label>Skills (comma separated)</label>
-            <input id="i_skills" type="text" placeholder="React, SQL, Figma, Leadership">
+            <input id="i_skills" type="text" placeholder="Food prep, Hygiene, Teamwork">
           </div>
           <div class="form-group">
             <label>Tools / Tech (comma separated)</label>
-            <input id="i_tools" type="text" placeholder="Jira, Git, AWS, Docker">
+            <input id="i_tools" type="text" placeholder="POS, Inventory, Kitchen equipment">
           </div>
 
           <h3>Languages</h3>
@@ -1744,7 +1676,7 @@
           <h3>Hobbies</h3>
           <div class="form-group">
             <label>Hobbies (comma separated)</label>
-            <input id="i_hobbies" type="text" placeholder="Reading, Fitness, Volunteering">
+            <input id="i_hobbies" type="text" placeholder="Cooking, Fitness, Volunteering">
           </div>
 
           <h3>Extra Sections</h3>
@@ -1758,12 +1690,9 @@
         <main class="preview">
           <div class="resume-page" id="resumePage">
             <div class="resume-inner" id="resumeInner">
-              <!-- The modern template uses a special layout wrapper -->
               <div class="resume-layout" id="resumeLayout">
                 <div class="left-rail" id="leftRail" style="display:none;"></div>
                 <div class="main-rail" id="mainRail" style="display:none;"></div>
-
-                <!-- Default: content goes in resumeInner directly for non-modern templates -->
                 <div id="resumeContent"></div>
               </div>
             </div>
@@ -1772,6 +1701,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Hidden file input for import -->
+  <input id="importFile" type="file" accept="application/json" style="display:none;" />
 
   <script>
     /* ============
@@ -1805,7 +1737,7 @@
     /* ============
        State + LocalStorage
     ============ */
-    const LS_KEY = "resumeforge_all_templates_builder_v1";
+    const LS_KEY = "resumeforge_single_html_builder_v2";
 
     const state = {
       templateClass: "tpl-minimalist",
@@ -1830,9 +1762,7 @@
       customSections: []
     };
 
-    function save(){
-      localStorage.setItem(LS_KEY, JSON.stringify(state));
-    }
+    function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
     function load(){
       const raw = localStorage.getItem(LS_KEY);
       if(!raw) return;
@@ -1848,11 +1778,46 @@
     }
 
     /* ============
+       Create New / Import flow
+    ============ */
+    function openBuilderNew(templateClass, templateName){
+      // New CV means reset fields but keep chosen template
+      state.templateClass = templateClass;
+      state.templateName = templateName;
+      state.personal = { name:"", title:"", email:"", phone:"", location:"", website:"", dob:"", photoDataUrl:"" };
+      state.summary = "";
+      state.experience = [];
+      state.education = [];
+      state.skills = "";
+      state.tools = "";
+      state.languages = [];
+      state.hobbies = "";
+      state.customSections = [];
+      save();
+      openBuilder(templateClass, templateName);
+    }
+
+    function openBuilderImport(templateClass, templateName){
+      // Choose template, then import JSON into it
+      state.templateClass = templateClass;
+      state.templateName = templateName;
+      save();
+      openBuilder(templateClass, templateName);
+      importJSONClick();
+    }
+
+    function openImportDialogFromHome(){
+      // Import from home will load into last used template
+      openBuilder(state.templateClass, state.templateName);
+      importJSONClick();
+    }
+
+    /* ============
        Builder open/close + template selection
     ============ */
     function openBuilder(templateClass, templateName){
-      state.templateClass = templateClass || "tpl-minimalist";
-      state.templateName = templateName || "The Minimalist";
+      state.templateClass = templateClass || state.templateClass || "tpl-minimalist";
+      state.templateName = templateName || state.templateName || "The Minimalist";
       save();
 
       const overlay = document.getElementById("builderOverlay");
@@ -1866,12 +1831,6 @@
       ensureDefaults();
       renderAllEditors();
       updatePreview();
-
-      // Scroll preview into view inside modal
-      setTimeout(() => {
-        const shell = document.querySelector(".builder-shell");
-        if(shell) shell.scrollIntoView({behavior:"smooth", block:"start"});
-      }, 50);
     }
 
     function closeBuilder(){
@@ -1882,10 +1841,8 @@
 
     function applyTemplate(){
       const page = document.getElementById("resumePage");
-      // remove any previous tpl-*
       page.className = "resume-page";
       page.classList.add(state.templateClass);
-
       document.getElementById("tplPill").textContent = `Template: ${state.templateName}`;
       save();
       updatePreview();
@@ -1913,30 +1870,22 @@
       let total = 0;
       const now = new Date();
       const nowYM = { y: now.getFullYear(), m: now.getMonth() + 1 };
-
       for(const e of state.experience){
         const start = parseMonthValue(e.start);
         if(!start) continue;
-
         let endYM = null;
-        if(e.endMode === "Present"){
-          endYM = nowYM;
-        } else {
-          endYM = parseMonthValue(e.end) || start;
-        }
-
+        if(e.endMode === "Present"){ endYM = nowYM; }
+        else { endYM = parseMonthValue(e.end) || start; }
         const diff = Math.max(0, monthIndex(endYM) - monthIndex(start) + 1);
         total += diff;
       }
       return total;
     }
-
     function fmtYears(months){
       const yrs = months / 12;
       const rounded = Math.round(yrs * 10) / 10;
       return `${rounded.toFixed(1)} yrs`;
     }
-
     function fmtDOB(iso){
       if(!iso) return "";
       if(!/^\d{4}-\d{2}-\d{2}$/.test(iso)) return "";
@@ -1973,11 +1922,11 @@
           <div class="grid2">
             <div class="form-group">
               <label>Job Title</label>
-              <input type="text" data-k="job" placeholder="e.g., Product Designer" value="${esc(e.job)}">
+              <input type="text" data-k="job" placeholder="e.g., Kitchen Assistant" value="${esc(e.job)}">
             </div>
             <div class="form-group">
               <label>Company</label>
-              <input type="text" data-k="company" placeholder="e.g., Company Ltd" value="${esc(e.company)}">
+              <input type="text" data-k="company" placeholder="e.g., Restaurant Name" value="${esc(e.company)}">
             </div>
           </div>
 
@@ -2001,7 +1950,7 @@
 
           <div class="form-group">
             <label>Description (bullets or paragraph)</label>
-            <textarea rows="4" data-k="desc" placeholder="- Increased conversion by 18% ...">${esc(e.desc)}</textarea>
+            <textarea rows="4" data-k="desc" placeholder="- Assisted with food preparation...\n- Maintained hygiene standards...">${esc(e.desc)}</textarea>
           </div>
         `;
 
@@ -2046,22 +1995,22 @@
           <div class="grid2">
             <div class="form-group">
               <label>Degree / Course</label>
-              <input type="text" data-k="degree" placeholder="e.g., BSc Computer Science" value="${esc(ed.degree)}">
+              <input type="text" data-k="degree" placeholder="e.g., Food Hygiene Level 2" value="${esc(ed.degree)}">
             </div>
             <div class="form-group">
               <label>Institution</label>
-              <input type="text" data-k="school" placeholder="e.g., University Name" value="${esc(ed.school)}">
+              <input type="text" data-k="school" placeholder="e.g., College / Training Center" value="${esc(ed.school)}">
             </div>
           </div>
 
           <div class="grid2">
             <div class="form-group">
               <label>Year</label>
-              <input type="text" data-k="year" placeholder="e.g., 2024" value="${esc(ed.year)}">
+              <input type="text" data-k="year" placeholder="e.g., 2025" value="${esc(ed.year)}">
             </div>
             <div class="form-group">
               <label>Notes (optional)</label>
-              <input type="text" data-k="notes" placeholder="e.g., First Class" value="${esc(ed.notes)}">
+              <input type="text" data-k="notes" placeholder="e.g., Pass" value="${esc(ed.notes)}">
             </div>
           </div>
         `;
@@ -2160,7 +2109,7 @@
 
           <div class="form-group">
             <label>Section Title</label>
-            <input type="text" data-k="title" placeholder="e.g., Projects" value="${esc(s.title)}">
+            <input type="text" data-k="title" placeholder="e.g., Certifications" value="${esc(s.title)}">
           </div>
 
           <div class="form-group">
@@ -2216,7 +2165,6 @@
       renderCustomEditor();
       updatePreview();
     }
-
     function ensureDefaults(){
       if(!state.experience.length) addExperience();
       if(!state.education.length) addEducation();
@@ -2264,16 +2212,8 @@
     function bindText(id, getter, setter){
       const el = document.getElementById(id);
       if(!el) return;
-      el.addEventListener("input", () => {
-        setter(el.value);
-        save();
-        updatePreview();
-      });
-      el.addEventListener("change", () => {
-        setter(el.value);
-        save();
-        updatePreview();
-      });
+      el.oninput = () => { setter(el.value); save(); updatePreview(); };
+      el.onchange = () => { setter(el.value); save(); updatePreview(); };
       el.value = getter() || "";
     }
 
@@ -2310,11 +2250,9 @@
         hobbies.oninput = () => { state.hobbies = hobbies.value; save(); updatePreview(); };
       }
 
-      // Photo box
       const box = document.getElementById("photoBox");
       if(box){
-        if(state.personal.photoDataUrl) box.innerHTML = `<img alt="Photo" src="${state.personal.photoDataUrl}">`;
-        else box.innerHTML = "Photo";
+        box.innerHTML = state.personal.photoDataUrl ? `<img alt="Photo" src="${state.personal.photoDataUrl}">` : "Photo";
       }
 
       bindPhoto();
@@ -2322,8 +2260,17 @@
     }
 
     /* ============
-       Preview rendering (single source of truth)
+       Preview rendering
     ============ */
+    function renderSectionHead(title, secKey, rightHTML=""){
+      return `
+        <div class="r-sec-head" data-sec="${secKey}">
+          <span class="tag"><i></i><span>${esc(title)}</span></span>
+          ${rightHTML}
+        </div>
+      `;
+    }
+
     function renderHeaderHTML(){
       const p = state.personal;
       const dob = fmtDOB(p.dob);
@@ -2357,7 +2304,7 @@
       if(!text) return "";
       return `
         <div class="r-section">
-          <div class="r-sec-head"><span>Professional Summary</span></div>
+          ${renderSectionHead("Professional Summary","summary")}
           <div class="r-desc">${esc(text)}</div>
         </div>
       `;
@@ -2387,10 +2334,7 @@
 
       return `
         <div class="r-section">
-          <div class="r-sec-head">
-            <span>Experience</span>
-            ${badge}
-          </div>
+          ${renderSectionHead("Experience","experience", badge)}
           ${list}
         </div>
       `;
@@ -2413,7 +2357,7 @@
 
       return `
         <div class="r-section">
-          <div class="r-sec-head"><span>Education</span></div>
+          ${renderSectionHead("Education","education")}
           ${list}
         </div>
       `;
@@ -2422,21 +2366,20 @@
     function renderSkillsHTML(){
       const skills = splitList(state.skills);
       const tools = splitList(state.tools);
-
       let out = "";
       if(skills.length){
         out += `
           <div class="r-section">
-            <div class="r-sec-head"><span>Skills</span></div>
-            <div class="chips">${skills.map(s => `<span class="chip">${esc(s)}</span>`).join("")}</div>
+            ${renderSectionHead("Skills","skills")}
+            <div class="chips" data-sec="skills">${skills.map(s => `<span class="chip">${esc(s)}</span>`).join("")}</div>
           </div>
         `;
       }
       if(tools.length){
         out += `
           <div class="r-section">
-            <div class="r-sec-head"><span>Tools</span></div>
-            <div class="chips">${tools.map(s => `<span class="chip">${esc(s)}</span>`).join("")}</div>
+            ${renderSectionHead("Tools","tools")}
+            <div class="chips" data-sec="tools">${tools.map(s => `<span class="chip">${esc(s)}</span>`).join("")}</div>
           </div>
         `;
       }
@@ -2458,7 +2401,7 @@
 
       return `
         <div class="r-section">
-          <div class="r-sec-head"><span>Languages</span></div>
+          ${renderSectionHead("Languages","languages")}
           ${list}
         </div>
       `;
@@ -2469,8 +2412,8 @@
       if(!hobbies.length) return "";
       return `
         <div class="r-section">
-          <div class="r-sec-head"><span>Hobbies</span></div>
-          <div class="chips">${hobbies.map(h => `<span class="chip">${esc(h)}</span>`).join("")}</div>
+          ${renderSectionHead("Hobbies","hobbies")}
+          <div class="chips" data-sec="hobbies">${hobbies.map(h => `<span class="chip">${esc(h)}</span>`).join("")}</div>
         </div>
       `;
     }
@@ -2484,7 +2427,7 @@
           .split("\n")
           .map(x => x.replace(/^\s*[-•]\s*/,"").trim())
           .filter(Boolean)
-          .slice(0, 10);
+          .slice(0, 12);
 
         const body = bullets.length
           ? "• " + bullets.map(esc).join("\n• ")
@@ -2492,7 +2435,7 @@
 
         return `
           <div class="r-section">
-            <div class="r-sec-head"><span>${esc(s.title)}</span></div>
+            ${renderSectionHead(s.title,"custom")}
             <div class="r-desc">${body}</div>
           </div>
         `;
@@ -2502,8 +2445,6 @@
     function updatePreview(){
       const resumeContent = document.getElementById("resumeContent");
       const page = document.getElementById("resumePage");
-
-      // For tpl-modern, we route content into left/right rails
       const isModern = page.classList.contains("tpl-modern");
       const leftRail = document.getElementById("leftRail");
       const mainRail = document.getElementById("mainRail");
@@ -2518,25 +2459,17 @@
       const custom = renderCustomHTML();
 
       if(isModern){
-        // Turn on layout
         leftRail.style.display = "block";
         mainRail.style.display = "block";
-        resumeContent.innerHTML = ""; // unused
-
-        // Left rail: photo+contact already in header; we keep a smaller stack on left
-        // We render header in main for clarity; left rail gets skills/tools/lang/hobbies
+        resumeContent.innerHTML = "";
         mainRail.innerHTML = `${header}${summary}${exp}${custom}${edu}`;
         leftRail.innerHTML = `${skills}${lang}${hobbies}`;
-
       } else {
-        // Turn off layout rails
         leftRail.style.display = "none";
         mainRail.style.display = "none";
-
         resumeContent.innerHTML = `${header}${summary}${exp}${custom}${edu}${skills}${lang}${hobbies}`;
       }
 
-      // Photo box in editor
       const box = document.getElementById("photoBox");
       if(box){
         box.innerHTML = state.personal.photoDataUrl ? `<img alt="Photo" src="${state.personal.photoDataUrl}">` : "Photo";
@@ -2544,15 +2477,94 @@
     }
 
     /* ============
-       Init
+       Export / Import
     ============ */
-    function resetAllStartupDataIfNeeded(){
-      // nothing; keeping for future
+    function downloadFile(filename, content, mime){
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 500);
     }
 
+    function exportPDF(){
+      // Browser "Print to PDF" is the only reliable pure-frontend PDF export without adding libs.
+      window.print();
+    }
+
+    function exportHTML(){
+      const html = document.getElementById("resumePage").outerHTML;
+      const doc = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Resume</title></head><body style="margin:0;">${html}</body></html>`;
+      downloadFile("resume.html", doc, "text/html;charset=utf-8");
+    }
+
+    function exportJSON(){
+      const data = JSON.stringify(state, null, 2);
+      downloadFile("resume.json", data, "application/json");
+    }
+
+    function importJSONClick(){
+      document.getElementById("importFile").click();
+    }
+
+    document.getElementById("importFile").addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try{
+          const parsed = JSON.parse(reader.result);
+          // minimal validation
+          if(!parsed || typeof parsed !== "object") throw new Error("Invalid JSON");
+          // keep chosen template, but import resume content
+          const tplClass = state.templateClass;
+          const tplName = state.templateName;
+
+          Object.assign(state, parsed);
+          state.templateClass = tplClass;
+          state.templateName = tplName;
+
+          state.personal = Object.assign({ name:"", title:"", email:"", phone:"", location:"", website:"", dob:"", photoDataUrl:"" }, state.personal || {});
+          state.experience = Array.isArray(state.experience) ? state.experience : [];
+          state.education = Array.isArray(state.education) ? state.education : [];
+          state.languages = Array.isArray(state.languages) ? state.languages : [];
+          state.customSections = Array.isArray(state.customSections) ? state.customSections : [];
+
+          save();
+          hydrateInputs();
+          renderAllEditors();
+          applyTemplate();
+          updatePreview();
+          alert("Imported successfully.");
+        }catch(err){
+          alert("Import failed. Make sure it's a ResumeForge JSON export.");
+        }finally{
+          e.target.value = "";
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    function exportDOCXInfo(){
+      alert(
+        "DOCX export cannot be done reliably with plain HTML/JS alone.\n\n" +
+        "Options:\n" +
+        "1) Add a client-side library (docx / docxtemplater)\n" +
+        "2) Use a backend service to generate DOCX\n\n" +
+        "If you want, I can provide a single-HTML version that uses a CDN docx library."
+      );
+    }
+
+    /* ============
+       Init
+    ============ */
     load();
 
-    // If user opens builder without clicking a template (rare but possible)
+    // expose functions
     window.openBuilder = openBuilder;
     window.closeBuilder = closeBuilder;
     window.addExperience = addExperience;
@@ -2562,6 +2574,16 @@
     window.removePhoto = removePhoto;
     window.scrollToId = scrollToId;
     window.resetBuilder = resetBuilder;
+
+    window.openBuilderNew = openBuilderNew;
+    window.openBuilderImport = openBuilderImport;
+    window.openImportDialogFromHome = openImportDialogFromHome;
+
+    window.exportPDF = exportPDF;
+    window.exportHTML = exportHTML;
+    window.exportJSON = exportJSON;
+    window.importJSONClick = importJSONClick;
+    window.exportDOCXInfo = exportDOCXInfo;
 
     // Optional: open builder if URL has ?builder=1
     (function(){
