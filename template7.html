@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Academic - ResumeForge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f1f5f9; }
+    .editor { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
+    .sidebar { background: white; border-right: 1px solid #e2e8f0; padding: 20px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #7c3aed, #6366f1); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 18px; height: 18px; color: white; }
+    .logo-text { font-weight: 700; font-size: 16px; color: #0f172a; }
+    .back-btn { padding: 8px 16px; background: #f1f5f9; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; color: #475569; cursor: pointer; text-decoration: none; }
+    .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin: 20px 0 12px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #7c3aed; }
+    .btn { padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-primary { background: linear-gradient(135deg, #7c3aed, #6366f1); color: white; width: 100%; margin-top: 10px; }
+    .preview { padding: 40px; display: flex; justify-content: center; background: #e2e8f0; min-height: 100vh; }
+    .resume { width: 210mm; min-height: 297mm; background: white; padding: 60px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); font-family: 'Crimson Text', serif; }
+    .resume-header { text-align: center; margin-bottom: 40px; }
+    .cv-label { font-size: 12px; letter-spacing: 0.2em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .name { font-size: 36px; font-weight: 700; color: #1e293b; margin-bottom: 8px; }
+    .contact { font-size: 14px; color: #64748b; font-style: italic; }
+    .section { margin-bottom: 35px; }
+    .section-header { font-size: 16px; font-weight: 700; color: #1e293b; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #7c3aed; padding-bottom: 6px; margin-bottom: 18px; }
+    .item { margin-bottom: 20px; }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .item-title { font-weight: 600; color: #1e293b; font-size: 16px; }
+    .item-date { font-size: 14px; color: #7c3aed; font-style: italic; }
+    .item-subtitle { font-size: 15px; color: #475569; font-style: italic; margin-bottom: 6px; }
+    .item-desc { font-size: 15px; color: #64748b; line-height: 1.7; }
+    @media print { .sidebar { display: none; } .preview { padding: 0; background: white; } .resume { box-shadow: none; width: 100%; padding: 40px; } }
+    @media (max-width: 900px) { .editor { grid-template-columns: 1fr; } .sidebar { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="editor">
+    <aside class="sidebar">
+      <div class="header">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <span class="logo-text">ResumeForge</span>
+        </a>
+        <a href="index.html" class="back-btn">← Back</a>
+      </div>
+      
+      <div class="section-title">Personal Information</div>
+      <div class="form-group"><label>Full Name</label><input type="text" id="name" value="Dr. Emily Chen" oninput="update()"></div>
+      <div class="form-group"><label>Title</label><input type="text" id="title" value="Associate Professor of Biology" oninput="update()"></div>
+      <div class="form-group"><label>Email</label><input type="text" id="email" value="e.chen@university.edu" oninput="update()"></div>
+      <div class="form-group"><label>Institution</label><input type="text" id="institution" value="Stanford University" oninput="update()"></div>
+      
+      <div class="section-title">Research Focus</div>
+      <div class="form-group"><textarea id="summary" rows="4" oninput="update()">Molecular biologist specializing in cancer research. Published 45+ peer-reviewed articles with 2,000+ citations.</textarea></div>
+      
+      <button class="btn btn-primary" onclick="window.print()">📄 Download PDF</button>
+    </aside>
+    
+    <main class="preview">
+      <div class="resume">
+        <div class="resume-header">
+          <div class="cv-label">Curriculum Vitae</div>
+          <div class="name" id="r-name">Dr. Emily Chen</div>
+          <div class="contact" id="r-title">Associate Professor of Biology</div>
+          <div class="contact" id="r-institution">Stanford University | e.chen@university.edu</div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Research Interests</div>
+          <div class="item-desc" id="r-summary">Molecular biologist specializing in cancer research. Published 45+ peer-reviewed articles with 2,000+ citations.</div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Education</div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title">Ph.D. in Molecular Biology</span>
+              <span class="item-date">2010</span>
+            </div>
+            <div class="item-subtitle">MIT</div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Publications</div>
+          <div class="item">
+            <div class="item-title">Selected Peer-Reviewed Articles</div>
+            <div class="item-desc">Chen, E. et al. (2023). "Novel approaches to targeted cancer therapy." Nature Medicine.</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    function update() {
+      document.getElementById('r-name').textContent = document.getElementById('name').value;
+      document.getElementById('r-title').textContent = document.getElementById('title').value;
+      document.getElementById('r-institution').textContent = document.getElementById('institution').value + ' | ' + document.getElementById('email').value;
+      document.getElementById('r-summary').textContent = document.getElementById('summary').value;
+    }
+  </script>
+</body>
+</html>
