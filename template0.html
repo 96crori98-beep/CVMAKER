@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CV / Resume Maker</title>
+  <title>Professional CV / Resume Maker</title>
 
   <!-- Allowed CDN library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErCzJz9x9oG7ZfSg3lQ5o7b2zZt8xWQm7v9a+e9rJqGmQf5c8aSgYp3lVf7h1m2g0l+Q2a7Qm8hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErCzJz9x9oG7ZfSg3lQ5o7b2zZt8xWQm7v9a+e9rJqGmQf5c8aSgYp3lVf7h1m2g0l+Q2a7Qm8hA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <style>
     :root{
       --bg:#0b1220;
       --panel:#0f1a33;
       --card:#0f1a33;
-      --card2:#0e1930;
       --text:#eaf0ff;
       --muted:#a9b6d6;
       --border:rgba(255,255,255,.12);
@@ -48,12 +49,13 @@
 
     a{ color:inherit; text-decoration:none; }
     button, input, select, textarea{ font: inherit; }
+
     .app{
-      max-width: 1400px;
+      max-width: 1480px;
       margin: 0 auto;
       padding: 18px;
       display:grid;
-      grid-template-columns: 1fr minmax(380px, 560px);
+      grid-template-columns: 1fr minmax(380px, 600px);
       gap: 14px;
       align-items:start;
     }
@@ -107,6 +109,7 @@
       color: #ffd9e1;
     }
     .btn.small{ padding: 9px 12px; font-size:13px; font-weight: 900; }
+
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding: 7px 10px;
@@ -250,14 +253,6 @@
       box-shadow: 0 0 0 4px rgba(109,94,252,.12);
     }
 
-    .help-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      margin-top:10px;
-    }
     .nav-row{
       display:flex;
       gap:10px;
@@ -466,10 +461,10 @@
       box-sizing: border-box;
       display:flex;
       flex-direction:column;
-      gap: 8mm;
+      gap: 7.5mm;
     }
 
-    /* CV Typography (print-safe, ATS-friendly) */
+    /* CV Typography (ATS-friendly) */
     .cv h1, .cv h2, .cv h3, .cv p, .cv li, .cv div { font-family: Arial, Helvetica, sans-serif; }
     .cv .header{
       display:grid;
@@ -496,7 +491,7 @@
       margin-top: 3mm;
       display:flex;
       flex-wrap:wrap;
-      gap: 3mm 6mm;
+      gap: 2.8mm 6mm;
       font-size: 9.5pt;
       color:#2b3a55;
     }
@@ -529,23 +524,42 @@
 
     .cv .columns{
       display:grid;
-      grid-template-columns: 1.55fr .75fr;
+      grid-template-columns: 1.60fr .72fr;
       gap: 10mm;
       flex: 1 1 auto;
       min-height: 0;
     }
-    .cv section{
-      padding: 0;
-      margin: 0;
-      scroll-margin-top: 0;
+
+    .cv section{ padding: 0; margin: 0; }
+    .cv .sec-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 5mm;
+      margin: 0 0 2.5mm;
     }
     .cv .sec-title{
       font-size: 10.5pt;
       font-weight: 800;
-      margin:0 0 2.5mm;
+      margin:0;
       text-transform: uppercase;
       letter-spacing: .6px;
       color:#0b1220;
+    }
+
+    /* Bright badge box (requested) */
+    .cv .bright-box{
+      display:inline-flex;
+      align-items:center;
+      gap: 1.5mm;
+      padding: 1.6mm 2.6mm;
+      border-radius: 4mm;
+      border: 1px solid #b8c6ff;
+      background: #eaf0ff;
+      color:#14224a;
+      font-size: 8.8pt;
+      font-weight: 800;
+      white-space:nowrap;
     }
     .cv .para{
       margin: 0 0 2.5mm;
@@ -553,9 +567,7 @@
       color:#111a2b;
       line-height: 1.35;
     }
-    .cv .item{
-      margin: 0 0 3mm;
-    }
+    .cv .item{ margin: 0 0 3mm; }
     .cv .item .top{
       display:flex;
       justify-content:space-between;
@@ -589,6 +601,7 @@
       line-height: 1.35;
     }
     .cv li{ margin: 1mm 0; }
+
     .cv .chips{
       display:flex;
       flex-wrap:wrap;
@@ -604,16 +617,8 @@
       font-weight: 700;
     }
 
-    .cv .two-sec{
-      display:flex;
-      flex-direction:column;
-      gap: 6mm;
-    }
-    .cv .right-block{
-      display:flex;
-      flex-direction:column;
-      gap: 5mm;
-    }
+    .cv .two-sec{ display:flex; flex-direction:column; gap: 6mm; }
+    .cv .right-block{ display:flex; flex-direction:column; gap: 5mm; }
     .cv .small-note{
       font-size: 9.4pt;
       color:#2b3a55;
@@ -621,7 +626,15 @@
       line-height:1.35;
     }
 
-    /* Print */
+    .ats-box{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .ats-box b{ color:#dfe7ff; }
+    .ats-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+
     @media print{
       body{ background:#fff; }
       .topbar, .left, .right header, .zoom-row { display:none !important; }
@@ -632,12 +645,10 @@
       .a4{ box-shadow:none; border-radius:0; }
     }
 
-    /* Responsive */
     @media (max-width: 1100px){
       .app{ grid-template-columns: 1fr; }
     }
 
-    /* Accessibility */
     .sr-only{
       position:absolute !important;
       width:1px; height:1px;
@@ -650,16 +661,6 @@
       outline-offset: 2px;
       border-radius: 10px;
     }
-
-    /* Tiny helper (ATS) */
-    .ats-box{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      border-radius: 14px;
-      padding: 12px;
-    }
-    .ats-box b{ color:#dfe7ff; }
-    .ats-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
   </style>
 </head>
 
@@ -668,7 +669,7 @@
     <div class="topbar" role="banner" aria-label="CV Maker top bar">
       <div class="brand">
         <span class="mark" aria-hidden="true"></span>
-        <span>CV / Resume Maker</span>
+        <span>Professional CV Maker</span>
         <span class="pill" title="Pure client-side app">Local • Private</span>
       </div>
       <div class="top-actions">
@@ -723,6 +724,12 @@
                 <input id="location" name="location" autocomplete="address-level2" placeholder="e.g., London, UK" required />
               </div>
               <div class="field">
+                <label for="dob">Date of Birth</label>
+                <input id="dob" name="dob" type="date" />
+                <div class="hint">Optional. Include only if relevant for your region/role.</div>
+              </div>
+
+              <div class="field" style="grid-column: 1 / -1;">
                 <label for="link">LinkedIn / Portfolio URL</label>
                 <input id="link" name="link" type="url" placeholder="e.g., https://linkedin.com/in/username" />
               </div>
@@ -849,22 +856,22 @@
           <div class="step-pane" data-pane="4" role="tabpanel" aria-label="Skills">
             <div class="grid">
               <div class="field">
-                <label for="techSkills">Technical Skills</label>
+                <label for="techSkills">Technical Skills (comma-separated)</label>
                 <textarea id="techSkills" placeholder="e.g., JavaScript, React, Node.js, SQL, REST APIs"></textarea>
                 <div class="hint">Comma-separated works best for ATS.</div>
               </div>
               <div class="field">
-                <label for="softSkills">Soft Skills</label>
+                <label for="softSkills">Soft Skills (comma-separated)</label>
                 <textarea id="softSkills" placeholder="e.g., Stakeholder management, Communication, Problem-solving"></textarea>
               </div>
               <div class="field">
-                <label for="tools">Tools / Technologies</label>
+                <label for="tools">Tools / Technologies (comma-separated)</label>
                 <textarea id="tools" placeholder="e.g., Git, Jira, Figma, AWS, Docker"></textarea>
               </div>
               <div class="ats-box">
                 <b>Keyword alignment</b>
                 <div class="hint" style="margin-top:6px">
-                  Paste the job description keywords into your skill lists (honestly). ATS likes exact matches.
+                  Paste job description keywords into your skills (honestly). ATS likes exact matches.
                 </div>
                 <div class="ats-row">
                   <button class="btn small" type="button" id="btnSkillClean">Clean formatting</button>
@@ -872,6 +879,13 @@
                 </div>
               </div>
             </div>
+
+            <div style="margin-top:14px" class="repeat-header">
+              <h3>Extra Skill Groups (optional)</h3>
+              <button class="btn small" type="button" id="btnAddSkillGroup">+ Add Skill Group</button>
+            </div>
+            <div class="hint">Use this if you want custom categories like “Domain Knowledge”, “Frameworks”, “Testing”, etc.</div>
+            <div class="repeater" id="skillRepeater" aria-label="Skill group items"></div>
 
             <div class="error" id="err4"></div>
 
@@ -904,6 +918,22 @@
               <button class="btn small" type="button" id="btnAddLang">+ Add Language</button>
             </div>
             <div class="repeater" id="langRepeater" aria-label="Languages items"></div>
+
+            <div style="margin-top:14px" class="repeat-header">
+              <h3>Hobbies</h3>
+              <span class="pill" title="Keep it short">Short list</span>
+            </div>
+            <div class="field" style="margin-top:8px">
+              <label for="hobbies">Hobbies (comma-separated)</label>
+              <textarea id="hobbies" placeholder="e.g., Fitness, Reading, Volunteering, Chess"></textarea>
+            </div>
+
+            <div style="margin-top:14px" class="repeat-header">
+              <h3>Extra Sections (custom)</h3>
+              <button class="btn small" type="button" id="btnAddCustom">+ Add Extra Section</button>
+            </div>
+            <div class="hint">Add any custom section: “Awards”, “Publications”, “Volunteer Work”, “References”, whatever your life contains.</div>
+            <div class="repeater" id="customRepeater" aria-label="Custom section items"></div>
 
             <div class="error" id="err5"></div>
 
@@ -944,9 +974,7 @@
       <div class="preview-wrap">
         <div class="preview-frame">
           <div id="a4" class="a4" aria-label="A4 CV page">
-            <div id="cv" class="cv">
-              <!-- populated by JS -->
-            </div>
+            <div id="cv" class="cv"></div>
           </div>
         </div>
       </div>
@@ -957,7 +985,7 @@
     /* =========================
        State + LocalStorage
     ========================== */
-    const LS_KEY = "cvmaker_state_v1";
+    const LS_KEY = "cvmaker_state_v2";
 
     const state = {
       step: 0,
@@ -968,7 +996,8 @@
         phone: "",
         location: "",
         link: "",
-        photoDataUrl: "" // cropped square PNG dataURL
+        dob: "",
+        photoDataUrl: ""
       },
       summaryHtml: "",
       experience: [],
@@ -978,9 +1007,12 @@
         soft: "",
         tools: ""
       },
+      skillGroups: [],   // NEW: custom skill categories
       projects: [],
       certifications: [],
       languages: [],
+      hobbies: "",       // NEW
+      customSections: [],// NEW: Extra section builder
       ui: {
         zoom: 0.78,
         photoZoom: 1.2
@@ -995,7 +1027,7 @@
       if(!raw) return;
       const parsed = safeJsonParse(raw);
       if(!parsed) return;
-      // Shallow merge with defaults
+
       Object.assign(state, parsed);
       state.personal = Object.assign(state.personal, parsed.personal || {});
       state.skills = Object.assign(state.skills, parsed.skills || {});
@@ -1005,6 +1037,9 @@
       state.projects = Array.isArray(parsed.projects) ? parsed.projects : [];
       state.certifications = Array.isArray(parsed.certifications) ? parsed.certifications : [];
       state.languages = Array.isArray(parsed.languages) ? parsed.languages : [];
+      state.skillGroups = Array.isArray(parsed.skillGroups) ? parsed.skillGroups : [];
+      state.customSections = Array.isArray(parsed.customSections) ? parsed.customSections : [];
+      state.hobbies = typeof parsed.hobbies === "string" ? parsed.hobbies : "";
     }
 
     let saveTimer = null;
@@ -1054,8 +1089,6 @@
     }
 
     function validateStep(idx){
-      // Minimal but clear validation for required personal fields.
-      // Also keeps UX snappy on mobile.
       const errs = [$("#err0"), $("#err1"), $("#err2"), $("#err3"), $("#err4"), $("#err5")];
       const errBox = errs[idx];
       if(errBox) { errBox.classList.remove("show"); errBox.textContent = ""; }
@@ -1072,8 +1105,7 @@
         const emailOk = ($("#email").value || "").trim().length ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#email").value.trim()) : false;
 
         if(missing.length){
-          const msg = "Please fill in: " + missing.map(m=>m.label).join(", ") + ".";
-          errBox.textContent = msg;
+          errBox.textContent = "Please fill in: " + missing.map(m=>m.label).join(", ") + ".";
           errBox.classList.add("show");
           return false;
         }
@@ -1086,11 +1118,9 @@
       return true;
     }
 
-    // Step click + keyboard
     steps.forEach((s)=>{
       s.addEventListener("click", ()=>{
         const idx = Number(s.dataset.step);
-        // allow backwards anytime; forwards only if current step valid
         if(idx <= state.step || validateStep(state.step)){
           setStep(idx);
         }
@@ -1103,7 +1133,6 @@
       });
     });
 
-    // Prev/Next buttons
     $$("[data-next]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         if(!validateStep(state.step)) return;
@@ -1118,7 +1147,6 @@
       });
     });
     $("#btnFinish").addEventListener("click", ()=>{
-      // Finish just jumps to preview focus
       $("#btnPDF").focus();
     });
 
@@ -1136,10 +1164,7 @@
         if(cmd) execCmd(cmd);
       });
     });
-
-    $("#summary").addEventListener("input", ()=>{
-      syncFromForm();
-    });
+    $("#summary").addEventListener("input", ()=> syncFromForm());
 
     /* =========================
        Repeatable Sections Builders
@@ -1149,6 +1174,8 @@
     const projRepeater = $("#projRepeater");
     const certRepeater = $("#certRepeater");
     const langRepeater = $("#langRepeater");
+    const skillRepeater = $("#skillRepeater");
+    const customRepeater = $("#customRepeater");
 
     function uid(){
       return Math.random().toString(16).slice(2) + Date.now().toString(16);
@@ -1173,6 +1200,46 @@
       return wrap;
     }
 
+    function makeGrid(fields){
+      const g = document.createElement("div");
+      g.className = "grid";
+      fields.forEach(f=>g.appendChild(f));
+      return g;
+    }
+
+    function fieldInput(labelText, placeholder, value, onChange, type="text"){
+      const f = document.createElement("div");
+      f.className = "field";
+      const id = "f_" + uid();
+      f.innerHTML = `<label for="${id}">${escapeHtml(labelText)}</label>`;
+      const input = document.createElement("input");
+      input.id = id;
+      input.type = type;
+      input.placeholder = placeholder;
+      input.value = value || "";
+      input.addEventListener("input", ()=>onChange(input.value));
+      f.appendChild(input);
+      return f;
+    }
+    function fieldSelect(labelText, options, value, onChange){
+      const f = document.createElement("div");
+      f.className = "field";
+      const id = "s_" + uid();
+      f.innerHTML = `<label for="${id}">${escapeHtml(labelText)}</label>`;
+      const sel = document.createElement("select");
+      sel.id = id;
+      options.forEach(opt=>{
+        const o = document.createElement("option");
+        o.value = opt;
+        o.textContent = opt;
+        sel.appendChild(o);
+      });
+      sel.value = value || options[0];
+      sel.addEventListener("change", ()=>onChange(sel.value));
+      f.appendChild(sel);
+      return f;
+    }
+
     function renderRepeaters(){
       // Experience
       expRepeater.innerHTML = "";
@@ -1188,7 +1255,7 @@
           fieldInput("Job Title", "e.g., Senior Analyst", item.jobTitle, (v)=>{ item.jobTitle=v; changed(); }),
           fieldInput("Company Name", "e.g., Acme Ltd", item.company, (v)=>{ item.company=v; changed(); }),
           fieldInput("Location", "e.g., London, UK", item.location, (v)=>{ item.location=v; changed(); }),
-          fieldSelect("End Date", ["Present","End date"], item.endMode || "Present", (v)=>{ item.endMode=v; changed(); })
+          fieldSelect("End Date Mode", ["Present","End date"], item.endMode || "Present", (v)=>{ item.endMode=v; changed(); })
         ]));
 
         b.appendChild(makeGrid([
@@ -1302,46 +1369,51 @@
         langRepeater.appendChild(b);
       });
 
-      function changed(){ syncToPreview(); saveStateDebounced(); }
-    }
-
-    function makeGrid(fields){
-      const g = document.createElement("div");
-      g.className = "grid";
-      fields.forEach(f=>g.appendChild(f));
-      return g;
-    }
-    function fieldInput(labelText, placeholder, value, onChange, type="text"){
-      const f = document.createElement("div");
-      f.className = "field";
-      const id = "f_" + uid();
-      f.innerHTML = `<label for="${id}">${escapeHtml(labelText)}</label>`;
-      const input = document.createElement("input");
-      input.id = id;
-      input.type = type;
-      input.placeholder = placeholder;
-      input.value = value || "";
-      input.addEventListener("input", ()=>onChange(input.value));
-      f.appendChild(input);
-      return f;
-    }
-    function fieldSelect(labelText, options, value, onChange){
-      const f = document.createElement("div");
-      f.className = "field";
-      const id = "s_" + uid();
-      f.innerHTML = `<label for="${id}">${escapeHtml(labelText)}</label>`;
-      const sel = document.createElement("select");
-      sel.id = id;
-      options.forEach(opt=>{
-        const o = document.createElement("option");
-        o.value = opt;
-        o.textContent = opt;
-        sel.appendChild(o);
+      // Skill groups (custom)
+      skillRepeater.innerHTML = "";
+      state.skillGroups.forEach((item, idx)=>{
+        const b = blockTemplate(`Skill Group #${idx+1}`, ()=>{
+          state.skillGroups.splice(idx,1);
+          renderRepeaters();
+          syncToPreview();
+          saveStateDebounced();
+        });
+        b.appendChild(makeGrid([
+          fieldInput("Group Title", "e.g., Frameworks", item.title, (v)=>{ item.title=v; changed(); }),
+          fieldInput("Skills (comma-separated)", "e.g., React, Next.js, Redux", item.skills, (v)=>{ item.skills=v; changed(); })
+        ]));
+        skillRepeater.appendChild(b);
       });
-      sel.value = value || options[0];
-      sel.addEventListener("change", ()=>onChange(sel.value));
-      f.appendChild(sel);
-      return f;
+
+      // Custom sections
+      customRepeater.innerHTML = "";
+      state.customSections.forEach((item, idx)=>{
+        const b = blockTemplate(`Extra Section #${idx+1}`, ()=>{
+          state.customSections.splice(idx,1);
+          renderRepeaters();
+          syncToPreview();
+          saveStateDebounced();
+        });
+        b.appendChild(makeGrid([
+          fieldInput("Section Title", "e.g., Awards", item.title, (v)=>{ item.title=v; changed(); }),
+          fieldInput("Subtitle (optional)", "e.g., National Hackathon Winner", item.subtitle||"", (v)=>{ item.subtitle=v; changed(); })
+        ]));
+        const desc = document.createElement("div");
+        desc.className = "field";
+        desc.innerHTML = `<label>Content (one bullet per line)</label>`;
+        const ta = document.createElement("textarea");
+        ta.placeholder = "Example:\n- Awarded Employee of the Month (3x)\n- Speaker at XYZ Conference";
+        ta.value = (item.bullets||[]).join("\n");
+        ta.addEventListener("input", ()=>{
+          item.bullets = normalizeBullets(ta.value);
+          changed();
+        });
+        desc.appendChild(ta);
+        b.appendChild(desc);
+        customRepeater.appendChild(b);
+      });
+
+      function changed(){ syncToPreview(); saveStateDebounced(); }
     }
 
     /* =========================
@@ -1358,21 +1430,18 @@
         .split("\n")
         .map(l => l.replace(/^\s*[-•]\s*/,"").trim())
         .filter(Boolean)
-        .slice(0, 8); // keep concise for one-page
+        .slice(0, 8);
     }
 
     function improveBullet(line){
       if(!line) return "";
       let s = line.trim().replace(/\s+/g," ");
-      // Ensure starts with action verb
       const first = s.split(" ")[0] || "";
       const startsWithVerb = ACTION_VERBS.some(v => v.toLowerCase() === first.toLowerCase());
       if(!startsWithVerb){
         const pick = ACTION_VERBS[Math.floor(Math.random()*ACTION_VERBS.length)];
-        // Lowercase first letter if sentence already starts with lowercase
-        s = `${pick} ${s.charAt(0).toLowerCase() === s.charAt(0) ? s : s}`;
+        s = `${pick} ${s}`;
       }
-      // Ensure past tense consistency-ish (light touch, not grammar police)
       s = s.replace(/\boptimize\b/i,"optimized")
            .replace(/\bimprove\b/i,"improved")
            .replace(/\breduce\b/i,"reduced")
@@ -1380,14 +1449,12 @@
            .replace(/\bbuild\b/i,"built")
            .replace(/\bdesign\b/i,"designed")
            .replace(/\bimplement\b/i,"implemented");
-      // Add a neutral impact tail if none and short
+
       const hasNumber = /(\d+%|\d+\s?(users|customers|requests|tickets|hours|days|weeks|months|£|\$|k|m)\b|£\d+|\$\d+)/i.test(s);
       if(!hasNumber && s.length < 90 && !/result|impact|improv|reduc|increase|decreas|accelerat|optimiz/i.test(s)){
         s += " to improve speed, quality, or reliability.";
       }
-      // Capitalize first letter
       s = s.charAt(0).toUpperCase() + s.slice(1);
-      // End punctuation optional; keep consistent (no forced periods)
       return s;
     }
 
@@ -1395,6 +1462,54 @@
       const d = document.createElement("div");
       d.innerHTML = html || "";
       return (d.textContent || "").trim();
+    }
+
+    /* =========================
+       Experience Years Calculator (auto)
+    ========================== */
+    function parseMonthValue(v){
+      // expects "YYYY-MM"
+      const s = (v||"").trim();
+      if(!/^\d{4}-\d{2}$/.test(s)) return null;
+      const [y,m] = s.split("-").map(Number);
+      if(!y || !m) return null;
+      return { y, m };
+    }
+
+    function monthIndex(ym){
+      return ym.y * 12 + (ym.m - 1);
+    }
+
+    function calcTotalExperienceMonths(){
+      // Simple sum of durations. (Does not de-overlap overlapping jobs, because humans rarely keep clean timelines.)
+      let total = 0;
+      const now = new Date();
+      const nowYM = { y: now.getFullYear(), m: now.getMonth()+1 };
+
+      state.experience.forEach(exp=>{
+        const start = parseMonthValue(exp.startDate);
+        if(!start) return;
+        let end = null;
+        if((exp.endMode||"Present") === "Present"){
+          end = nowYM;
+        } else {
+          end = parseMonthValue(exp.endDate) || null;
+          if(!end) end = start;
+        }
+        const a = monthIndex(start);
+        const b = monthIndex(end);
+        const diff = Math.max(0, b - a + 1); // inclusive month count
+        total += diff;
+      });
+
+      return total;
+    }
+
+    function formatYearsFromMonths(months){
+      if(!months) return "0.0 yrs";
+      const years = months / 12;
+      const rounded = Math.round(years * 10) / 10;
+      return `${rounded.toFixed(1)} yrs`;
     }
 
     /* =========================
@@ -1407,11 +1522,14 @@
       state.personal.phone = $("#phone").value.trim();
       state.personal.location = $("#location").value.trim();
       state.personal.link = $("#link").value.trim();
+      state.personal.dob = ($("#dob").value || "").trim();
       state.summaryHtml = $("#summary").innerHTML;
 
       state.skills.tech = $("#techSkills").value;
       state.skills.soft = $("#softSkills").value;
       state.skills.tools = $("#tools").value;
+
+      state.hobbies = $("#hobbies").value;
 
       saveStateDebounced();
       syncToPreview();
@@ -1430,7 +1548,7 @@
     const photoPlaceholder = $("#photoPlaceholder");
     const photoZoom = $("#photoZoom");
 
-    let rawPhoto = null; // Image object
+    let rawPhoto = null;
     let rawPhotoUrl = "";
 
     function setPhotoDataUrl(dataUrl){
@@ -1450,7 +1568,6 @@
     }
 
     function cropCenterSquare(img, zoom=1.2, outSize=600){
-      // Create a square crop centered, with zoom factor.
       const canvas = document.createElement("canvas");
       canvas.width = outSize;
       canvas.height = outSize;
@@ -1464,7 +1581,6 @@
       const sx0 = (iw - side) / 2;
       const sy0 = (ih - side) / 2;
 
-      // Apply zoom by cropping a smaller square from the center
       const zoomedSide = side / Math.max(1, zoom);
       const sx = sx0 + (side - zoomedSide)/2;
       const sy = sy0 + (side - zoomedSide)/2;
@@ -1504,7 +1620,6 @@
       if(rawPhoto){
         setPhotoDataUrl(cropCenterSquare(rawPhoto, state.ui.photoZoom, 600));
       } else if(state.personal.photoDataUrl){
-        // If only saved data exists, keep it as-is.
         saveStateDebounced();
       }
       saveStateDebounced();
@@ -1592,6 +1707,29 @@
       saveStateDebounced();
     });
 
+    $("#btnAddSkillGroup").addEventListener("click", ()=>{
+      state.skillGroups.push({
+        id: uid(),
+        title:"",
+        skills:""
+      });
+      renderRepeaters();
+      syncToPreview();
+      saveStateDebounced();
+    });
+
+    $("#btnAddCustom").addEventListener("click", ()=>{
+      state.customSections.push({
+        id: uid(),
+        title:"",
+        subtitle:"",
+        bullets:[]
+      });
+      renderRepeaters();
+      syncToPreview();
+      saveStateDebounced();
+    });
+
     /* =========================
        Auto-summary + bullet improvements + skills helpers
     ========================== */
@@ -1617,7 +1755,6 @@
     $("#btnAutoBullets").addEventListener("click", ()=>{
       state.experience.forEach(exp=>{
         exp.achievements = (exp.achievements || []).map(improveBullet);
-        // If achievements empty, suggest 2 starter bullets using any metrics
         if(!exp.achievements.length){
           const metric = (exp.metric||"").trim();
           const focus = (exp.focus||"").trim();
@@ -1637,6 +1774,7 @@
       $("#techSkills").value = cleanCommaList($("#techSkills").value);
       $("#softSkills").value = cleanCommaList($("#softSkills").value);
       $("#tools").value = cleanCommaList($("#tools").value);
+      $("#hobbies").value = cleanCommaList($("#hobbies").value);
       syncFromForm();
     });
 
@@ -1655,7 +1793,6 @@
         suggestions.push("Communication","Problem-solving","Project coordination","Process improvement","Reporting");
       }
 
-      // Put into tools if seems tool-y, else tech or soft.
       const currentTech = splitToChips($("#techSkills").value);
       const currentSoft = splitToChips($("#softSkills").value);
       const currentTools = splitToChips($("#tools").value);
@@ -1676,15 +1813,13 @@
       syncFromForm();
     });
 
-    function cleanCommaList(s){
-      return splitToChips(s).join(", ");
-    }
+    function cleanCommaList(s){ return splitToChips(s).join(", "); }
     function splitToChips(s){
       return (s || "")
         .split(/[,;\n]/g)
         .map(x=>x.trim())
         .filter(Boolean)
-        .slice(0, 24); // keep sane
+        .slice(0, 30);
     }
 
     /* =========================
@@ -1710,8 +1845,13 @@
       return e ? `${s} – ${e}` : `${s}`;
     }
 
-    function renderSectionTitle(title){
-      return `<div class="sec-title">${escapeHtml(title)}</div>`;
+    function renderSectionTitle(title, rightHtml=""){
+      return `
+        <div class="sec-head">
+          <div class="sec-title">${escapeHtml(title)}</div>
+          ${rightHtml || ""}
+        </div>
+      `;
     }
 
     function renderChips(list){
@@ -1727,21 +1867,23 @@
     }
 
     function renderExperience(){
-      if(!state.experience.length) return "";
       const items = state.experience
         .filter(x => (x.jobTitle||x.company||x.achievements?.length))
-        .slice(0, 4); // one-page constraint
+        .slice(0, 5);
       if(!items.length) return "";
+
+      const totalMonths = calcTotalExperienceMonths();
+      const badge = `<span class="bright-box">Total Experience: ${escapeHtml(formatYearsFromMonths(totalMonths))}</span>`;
 
       return `
         <section>
-          ${renderSectionTitle("Work Experience")}
+          ${renderSectionTitle("Work Experience", badge)}
           ${items.map(exp=>{
             const role = [exp.jobTitle, exp.company].filter(Boolean).join(" · ");
             const meta = fmtDateRange(exp.startDate, exp.endMode, exp.endDate);
             const subBits = [exp.location, exp.focus].filter(Boolean);
             const sub = subBits.length ? subBits.join(" · ") : "";
-            const ach = (exp.achievements||[]).slice(0, 6).map(improveBullet); // keep ATS wording strong
+            const ach = (exp.achievements||[]).slice(0, 6).map(improveBullet);
             return `
               <div class="item">
                 <div class="top">
@@ -1760,7 +1902,7 @@
     function renderEducation(){
       const items = state.education
         .filter(x => (x.degree||x.institution||x.gradYear))
-        .slice(0, 3);
+        .slice(0, 4);
       if(!items.length) return "";
       return `
         <section>
@@ -1837,7 +1979,7 @@
     function renderLanguages(){
       const items = state.languages
         .filter(x => (x.name||x.level))
-        .slice(0, 4);
+        .slice(0, 5);
       if(!items.length) return "";
       return `
         <section>
@@ -1858,23 +2000,65 @@
       `;
     }
 
+    function renderHobbies(){
+      const chips = splitToChips(state.hobbies);
+      if(!chips.length) return "";
+      return `
+        <section>
+          ${renderSectionTitle("Hobbies")}
+          <div class="chips">${chips.map(x=>`<span class="chip">${escapeHtml(x)}</span>`).join("")}</div>
+        </section>
+      `;
+    }
+
+    function renderSkillGroups(){
+      const groups = state.skillGroups
+        .filter(g => (g.title||"").trim() && splitToChips(g.skills).length)
+        .slice(0, 5);
+      if(!groups.length) return "";
+      return groups.map(g=>{
+        return `
+          <div>
+            <div class="sec-title" style="margin:0 0 2.5mm; font-size:10pt;">${escapeHtml(g.title)}</div>
+            ${renderChips(g.skills)}
+          </div>
+        `;
+      }).join("");
+    }
+
     function renderSkills(){
       const hasAny = (state.skills.tech||state.skills.soft||state.skills.tools).trim().length > 0;
-      if(!hasAny) return "";
+      const hasGroups = state.skillGroups.some(g => (g.title||"").trim() && splitToChips(g.skills).length);
+      if(!hasAny && !hasGroups) return "";
       return `
         <section class="right-block">
-          <div>
-            ${renderSectionTitle("Technical Skills")}
-            ${renderChips(state.skills.tech)}
-          </div>
-          <div>
-            ${renderSectionTitle("Tools")}
-            ${renderChips(state.skills.tools)}
-          </div>
-          <div>
-            ${renderSectionTitle("Soft Skills")}
-            ${renderChips(state.skills.soft)}
-          </div>
+          ${(state.skills.tech||"").trim() ? `<div>${renderSectionTitle("Technical Skills")}${renderChips(state.skills.tech)}</div>` : ""}
+          ${(state.skills.tools||"").trim() ? `<div>${renderSectionTitle("Tools")}${renderChips(state.skills.tools)}</div>` : ""}
+          ${(state.skills.soft||"").trim() ? `<div>${renderSectionTitle("Soft Skills")}${renderChips(state.skills.soft)}</div>` : ""}
+          ${hasGroups ? `<div style="display:flex; flex-direction:column; gap:4mm;">${renderSkillGroups()}</div>` : ""}
+        </section>
+      `;
+    }
+
+    function renderCustomSections(){
+      const items = state.customSections
+        .filter(x => (x.title||"").trim() && (x.subtitle||"").trim() || (x.bullets||[]).length)
+        .slice(0, 3);
+      if(!items.length) return "";
+      return `
+        <section>
+          ${items.map(s=>{
+            const title = (s.title||"").trim() || "Extra";
+            const subtitle = (s.subtitle||"").trim();
+            const bullets = (s.bullets||[]).slice(0, 6).map(improveBullet);
+            return `
+              <div style="margin-bottom:5mm;">
+                ${renderSectionTitle(title)}
+                ${subtitle ? `<div class="small-note" style="margin:-1mm 0 2mm; font-weight:700;">${escapeHtml(subtitle)}</div>` : ``}
+                ${renderList(bullets)}
+              </div>
+            `;
+          }).join("")}
         </section>
       `;
     }
@@ -1890,7 +2074,6 @@
           </section>
         `;
       }
-      // Keep summary concise by stripping excessive whitespace
       return `
         <section>
           ${renderSectionTitle("Summary")}
@@ -1899,15 +2082,25 @@
       `;
     }
 
+    function prettyDOB(iso){
+      // iso: YYYY-MM-DD
+      const s = (iso||"").trim();
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(s)) return "";
+      const [y,m,d] = s.split("-");
+      return `${d}/${m}/${y}`;
+    }
+
     function renderHeader(){
       const p = state.personal;
       const name = p.fullName || "Your Name";
       const title = p.proTitle || "Professional Title";
+
       const contactBits = [
         p.email ? `<span>📧 ${escapeHtml(p.email)}</span>` : "",
         p.phone ? `<span>📞 ${escapeHtml(p.phone)}</span>` : "",
         p.location ? `<span>📍 ${escapeHtml(p.location)}</span>` : "",
-        p.link ? `<span>🔗 ${escapeHtml(p.link)}</span>` : ""
+        p.link ? `<span>🔗 ${escapeHtml(p.link)}</span>` : "",
+        p.dob ? `<span>🎂 ${escapeHtml(prettyDOB(p.dob))}</span>` : ""
       ].filter(Boolean).join("");
 
       const photo = p.photoDataUrl
@@ -1927,13 +2120,13 @@
     }
 
     function syncToPreview(){
-      // Build a one-page friendly layout
       const leftCol = `
         <div class="two-sec">
           ${renderSummary()}
           ${renderExperience()}
           ${renderProjects()}
           ${renderEducation()}
+          ${renderCustomSections()}
         </div>
       `;
 
@@ -1942,6 +2135,7 @@
           ${renderSkills()}
           ${renderCerts()}
           ${renderLanguages()}
+          ${renderHobbies()}
         </div>
       `;
 
@@ -1957,8 +2151,6 @@
     }
 
     function updateOnePageHint(){
-      // Rough check for overflow: if content height exceeds A4, warn user.
-      // Not perfect (fonts vary), but good UX.
       requestAnimationFrame(()=>{
         const hint = $("#pageHint");
         const overflow = cvEl.scrollHeight > a4El.clientHeight + 1;
@@ -1999,13 +2191,11 @@
     });
 
     $("#btnPDF").addEventListener("click", async ()=>{
-      // Validate personal required fields before export (so filenames and header are sane)
       if(!validateStep(0)){
         setStep(0);
         return;
       }
 
-      // Temporarily set zoom to 1 for crisp PDF render
       const prevZoom = state.ui.zoom;
       applyZoom(1.0);
       zoomRange.value = "1.0";
@@ -2013,7 +2203,7 @@
       const name = state.personal.fullName || "CV";
       const filename = `${sanitizeFilename(name)}_CV.pdf`;
 
-      const element = $("#a4"); // export the exact preview wrapper
+      const element = $("#a4");
       const opt = {
         margin:       0,
         filename:     filename,
@@ -2025,7 +2215,6 @@
       try{
         await html2pdf().set(opt).from(element).save();
       } finally {
-        // restore zoom
         applyZoom(prevZoom);
         zoomRange.value = String(prevZoom);
       }
@@ -2050,17 +2239,18 @@
       $("#phone").value = state.personal.phone || "";
       $("#location").value = state.personal.location || "";
       $("#link").value = state.personal.link || "";
+      $("#dob").value = state.personal.dob || "";
 
       $("#summary").innerHTML = state.summaryHtml || "";
 
       $("#techSkills").value = state.skills.tech || "";
       $("#softSkills").value = state.skills.soft || "";
       $("#tools").value = state.skills.tools || "";
+      $("#hobbies").value = state.hobbies || "";
 
       // Photo
       photoZoom.value = String(state.ui.photoZoom || 1.2);
       if(state.personal.photoDataUrl){
-        // Show saved crop. rawPhoto not available (fine).
         setPhotoDataUrl(state.personal.photoDataUrl);
       } else {
         setPhotoDataUrl("");
@@ -2104,22 +2294,10 @@
       syncToPreview();
     }
 
-    /* =========================
-       Load + Run
-    ========================== */
     loadState();
     hydrateForm();
 
-    // Improve keyboard navigation: Enter on Next/Back buttons already works.
-    // Also: prevent accidental form submission.
     $("#cvForm").addEventListener("submit", (e)=>e.preventDefault());
-
-    // Keep preview synced for summary formatting commands
-    document.addEventListener("selectionchange", ()=>{
-      // no-op; could be used for toolbar state if needed
-    });
-
-    // Ensure UI saves initial state
     saveStateDebounced();
   </script>
 </body>
