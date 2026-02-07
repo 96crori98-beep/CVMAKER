@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>ResumeForge | Free Resume Builder & CV Maker - Create Professional Resumes</title>
+    <meta name="description" content="Build a professional resume in minutes with ResumeForge. Free, open-source resume builder with ATS-friendly templates. No signup required. Download as PDF instantly.">
+    <meta name="keywords" content="resume builder, CV maker, free resume templates, ATS-friendly resume, professional resume builder, online CV creator, resume download PDF, job resume maker">
+    <meta name="author" content="ResumeForge">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://yourusername.github.io/resumeforge">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/resumeforge">
+    <meta property="og:title" content="ResumeForge | Free Resume Builder & CV Maker">
+    <meta property="og:description" content="Build a professional resume in minutes. Free, open-source resume builder with ATS-friendly templates. No signup required.">
+    <meta property="og:image" content="https://yourusername.github.io/resumeforge/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="ResumeForge">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/resumeforge">
+    <meta property="twitter:title" content="ResumeForge | Free Resume Builder & CV Maker">
+    <meta property="twitter:description" content="Build a professional resume in minutes. Free, open-source resume builder with ATS-friendly templates.">
+    <meta property="twitter:image" content="https://yourusername.github.io/resumeforge/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563eb'/%3E%3Cpath d='M8 8h16v16H8V8zm2 2v12h12V10H10z' fill='white'/%3E%3Cpath d='M12 13h8v1.5h-8V13zm0 3h8v1.5h-8V16zm0 3h5v1.5h-5V19z' fill='white'/%3E%3C/svg%3E">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ResumeForge",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "2547"
+      },
+      "description": "Free resume builder and CV maker with ATS-friendly templates. Create professional resumes in minutes.",
+      "url": "https://yourusername.github.io/resumeforge"
+    }
+    </script>
+    
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is ResumeForge completely free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, ResumeForge is 100% free and open-source. There are no hidden fees, subscriptions, or premium tiers. All templates and features are available at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the resume templates ATS-friendly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! All our resume templates are designed to be ATS (Applicant Tracking System) friendly. They use clean formatting and proper structure to ensure your resume passes through automated screening systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account to use ResumeForge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No account is required. Simply choose a template and start building your resume immediately. Your data stays in your browser for privacy and security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download my resume as a PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can download your resume as a high-quality PDF file instantly. The PDF format ensures your resume looks professional and maintains its formatting across all devices."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #1e40af;
+            --dark: #111827;
+            --light: #f3f4f6;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --green-100: #d1fae5;
+            --green-500: #10b981;
+            --yellow-400: #facc15;
+            --purple-100: #f3e8ff;
+            --purple-700: #7c3aed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        @media (min-width: 640px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .github-link {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        @media (min-width: 640px) {
+            .github-link {
+                display: flex;
+            }
+        }
+
+        .github-link:hover {
+            color: var(--gray-900);
+        }
+
+        .github-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gray-900);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-blue {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-blue:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--gray-50);
+        }
+
+        .btn-outline-blue {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            width: 100%;
+        }
+
+        .btn-outline-blue:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-lg {
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            background: var(--blue-100);
+            color: var(--blue-700);
+        }
+
+        .badge-green {
+            background: var(--green-100);
+            color: #065f46;
+        }
+
+        .badge-purple {
+            background: var(--purple-100);
+            color: var(--purple-700);
+        }
+
+        .badge-secondary {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            font-size: 0.625rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--blue-50) 0%, white 100%);
+            padding: 4rem 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 7rem 2rem;
+            }
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 36rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-description {
+                font-size: 1.25rem;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-badge svg {
+            width: 16px;
+            height: 16px;
+            color: var(--green-500);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .stats-card {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        @media (min-width: 640px) {
+            .stat-value {
+                font-size: 1.5rem;
+            }
+        }
+
+        .stat-label {
+            font-size: 0.625rem;
+            color: var(--gray-500);
+        }
+
+        @media (min-width: 640px) {
+            .stat-label {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .section {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: var(--gray-50);
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--blue-100);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            color: var(--gray-600);
+        }
+
+        /* Templates Section */
+        .templates-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .templates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .templates-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .template-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .template-card:hover {
+            border-color: var(--blue-300);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .template-preview {
+            height: 16rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .template-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .template-card:hover .template-preview img {
+            transform: scale(1.05);
+        }
+
+        .template-preview::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s;
+        }
+
+        .template-card:hover .template-preview::after {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .template-content {
+            padding: 1.5rem;
+        }
+
+        .template-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .template-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .template-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works-section {
+            background: var(--gray-900);
+            color: white;
+        }
+
+        .how-it-works-section .section-title {
+            color: white;
+        }
+
+        .how-it-works-section .section-description {
+            color: var(--gray-300);
+        }
+
+        .steps-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .step {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-description {
+            color: var(--gray-400);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--blue-50);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-stars svg {
+            width: 20px;
+            height: 20px;
+            color: var(--yellow-400);
+            fill: currentColor;
+        }
+
+        .testimonial-content {
+            color: var(--gray-700);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--blue-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 56rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--gray-50);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .faq-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-question h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            padding-right: 1rem;
+        }
+
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--gray-400);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] .faq-icon {
+            transform: rotate(90deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--blue-700) 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .cta-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        .cta-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .cta-icon {
+            width: 64px;
+            height: 64px;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 auto 1.5rem;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .cta-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            color: var(--blue-100);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 1rem;
+        }
+
+        @media (min-width: 640px) {
+            footer {
+                padding: 3rem 2rem;
+            }
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        .footer-brand {
+            grid-column: 1 / -1;
+        }
+
+        @media (min-width: 768px) {
+            .footer-brand {
+                grid-column: 1;
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+
+        .footer-logo svg {
+            width: 24px;
+            height: 24px;
+            color: var(--blue-500);
+        }
+
+        .footer-description {
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+            max-width: 24rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--gray-400);
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: white;
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Focus styles */
+        button:focus-visible,
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--blue-100);
+            color: var(--secondary);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-300);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-400);
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .feature-card,
+            .template-card,
+            .step,
+            .testimonial-card,
+            .faq-item {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                ResumeForge
+            </a>
+            
+            <div class="nav-links">
+                <button class="nav-link" onclick="scrollToSection('features')">Features</button>
+                <button class="nav-link" onclick="scrollToSection('templates')">Templates</button>
+                <button class="nav-link" onclick="scrollToSection('how-it-works')">How It Works</button>
+                <button class="nav-link" onclick="scrollToSection('faq')">FAQ</button>
+            </div>
+
+            <div class="nav-actions">
+                <a href="https://github.com/yourusername/resumeforge" target="_blank" rel="noopener noreferrer" class="github-link" aria-label="View on GitHub">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                    GitHub
+                </a>
+                <button class="btn btn-primary" onclick="scrollToSection('templates')">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge" style="margin-bottom: 1rem;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        #1 Free Resume Builder
+                    </span>
+                    <h1 class="hero-title">Build a Job-Winning <span>Resume</span> in Minutes</h1>
+                    <p class="hero-description">Create a professional, ATS-friendly resume with our free resume builder. No signup required. Choose from expert-designed templates and download your CV as a PDF instantly.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-blue" onclick="scrollToSection('templates')">
+                            Create My Resume
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-outline" onclick="scrollToSection('how-it-works')">See How It Works</button>
+                    </div>
+                    <div class="trust-badges">
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            100% Free
+                        </span>
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            No Signup
+                        </span>
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            ATS-Friendly
+                        </span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=533&fit=crop" alt="Professional resume builder interface showing a modern resume template on laptop screen" width="800" height="533" loading="eager">
+                    <div class="stats-card">
+                        <div class="stats-grid">
+                            <div>
+                                <div class="stat-value">50K+</div>
+                                <div class="stat-label">Resumes Created</div>
+                            </div>
+                            <div>
+                                <div class="stat-value">4.8/5</div>
+                                <div class="stat-label">User Rating</div>
+                            </div>
+                            <div>
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">Free Forever</div>
+                            </div>
+                            <div>
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Account Required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section features-section">
+            <div class="section-container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Why Choose ResumeForge?</h2>
+                    <p class="section-description">The best free resume builder with everything you need to create a professional resume that gets you hired.</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card scroll-animate">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-description">No account required. Just pick a template and start typing. Build your resume in under 10 minutes.</p>
+                    </article>
+                    <article class="feature-card scroll-animate">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">ATS Friendly</h3>
+                        <p class="feature-description">Clean code and proper formatting ensure your resume passes automated applicant tracking systems.</p>
+                    </article>
+                    <article class="feature-card scroll-animate">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">PDF Export</h3>
+                        <p class="feature-description">Download your resume instantly in high-quality PDF format. Professional formatting guaranteed.</p>
+                    </article>
+                    <article class="feature-card scroll-animate">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">100% Private</h3>
+                        <p class="feature-description">Your data never leaves your browser. No servers, no tracking, complete privacy.</p>
+                    </article>
+                    <article class="feature-card scroll-animate">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Customizable</h3>
+                        <p class="feature-description">Easily customize colors, fonts, and layouts to match your personal brand and style.</p>
+                    </article>
+                    <article class="feature-card scroll-animate">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Auto-Save</h3>
+                        <p class="feature-description">Your progress is automatically saved locally. Never lose your work again.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Section -->
+        <section id="templates" class="section">
+            <div class="section-container">
+                <div class="section-header scroll-animate">
+                    <span class="badge badge-purple" style="margin-bottom: 1rem;">Professional Templates</span>
+                    <h2 class="section-title">Choose Your Resume Template</h2>
+                    <p class="section-description">Select from our collection of ATS-friendly resume templates designed by career experts. Each template is fully customizable and optimized for job applications.</p>
+                </div>
+                <div class="templates-grid">
+                    <article class="template-card scroll-animate">
+                        <div class="template-preview">
+                            <img src="https://images.unsplash.com/photo-1606323518213-ba20fcddec0d?w=600&h=400&fit=crop" alt="Professional executive resume template with clean layout and navy blue sidebar" width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="template-content">
+                            <div class="template-tags">
+                                <span class="badge badge-secondary">Corporate</span>
+                                <span class="badge badge-secondary">Professional</span>
+                            </div>
+                            <h3 class="template-title">The Executive</h3>
+                            <p class="template-description">Clean, structured, and perfect for corporate roles. Features a left sidebar and clear typography.</p>
+                            <button class="btn btn-outline-blue" onclick="useTemplate('executive')">
+                                Use This Template
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="template-card scroll-animate">
+                        <div class="template-preview">
+                            <img src="https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=600&h=400&fit=crop" alt="Creative modern resume template with emerald green accent colors and skill progress bars" width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="template-content">
+                            <div class="template-tags">
+                                <span class="badge badge-secondary">Creative</span>
+                                <span class="badge badge-secondary">Modern</span>
+                            </div>
+                            <h3 class="template-title">The Creator</h3>
+                            <p class="template-description">A bold, modern look with accent colors. Ideal for designers, developers, and startups.</p>
+                            <button class="btn btn-outline-blue" onclick="useTemplate('creator')">
+                                Use This Template
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="template-card scroll-animate">
+                        <div class="template-preview">
+                            <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=600&h=400&fit=crop" alt="Minimalist elegant resume template with clean black and white design" width="600" height="400" loading="lazy">
+                        </div>
+                        <div class="template-content">
+                            <div class="template-tags">
+                                <span class="badge badge-secondary">Simple</span>
+                                <span class="badge badge-secondary">Elegant</span>
+                            </div>
+                            <h3 class="template-title">The Minimalist</h3>
+                            <p class="template-description">Simple and elegant design that focuses on content. Perfect for any industry.</p>
+                            <button class="btn btn-outline-blue" onclick="useTemplate('minimalist')">
+                                Use This Template
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section how-it-works-section">
+            <div class="section-container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">How to Create Your Resume</h2>
+                    <p class="section-description">Build your professional resume in three simple steps. No complicated setup, no account creation - just results.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step scroll-animate">
+                        <div class="step-number">01</div>
+                        <h3 class="step-title">Choose a Template</h3>
+                        <p class="step-description">Select from our collection of professional, ATS-friendly resume templates.</p>
+                    </div>
+                    <div class="step scroll-animate">
+                        <div class="step-number">02</div>
+                        <h3 class="step-title">Fill in Your Details</h3>
+                        <p class="step-description">Add your work experience, education, skills, and other relevant information.</p>
+                    </div>
+                    <div class="step scroll-animate">
+                        <div class="step-number">03</div>
+                        <h3 class="step-title">Download as PDF</h3>
+                        <p class="step-description">Preview your resume and download it as a professional PDF file instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials-section">
+            <div class="section-container">
+                <div class="section-header scroll-animate">
+                    <span class="badge badge-green" style="margin-bottom: 1rem;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        User Reviews
+                    </span>
+                    <h2 class="section-title">Loved by Job Seekers Worldwide</h2>
+                    <p class="section-description">Join thousands of professionals who have successfully landed their dream jobs using ResumeForge.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <article class="testimonial-card scroll-animate">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-content">"ResumeForge helped me land my dream job! The templates are professional and the ATS-friendly format really works."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">S</div>
+                            <div>
+                                <div class="testimonial-name">Sarah Johnson</div>
+                                <div class="testimonial-role">Marketing Manager</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card scroll-animate">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-content">"I love that it's completely free and open-source. The templates look amazing and the PDF export is flawless."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">M</div>
+                            <div>
+                                <div class="testimonial-name">Michael Chen</div>
+                                <div class="testimonial-role">Software Developer</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card scroll-animate">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-content">"As someone who reviews resumes daily, I can confirm these templates are perfectly formatted for ATS systems."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">E</div>
+                            <div>
+                                <div class="testimonial-name">Emily Rodriguez</div>
+                                <div class="testimonial-role">HR Specialist</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="section-container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-description">Everything you need to know about ResumeForge and our free resume builder.</p>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item scroll-animate">
+                        <summary class="faq-question">
+                            <h3>Is ResumeForge completely free?</h3>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Yes, ResumeForge is 100% free and open-source. There are no hidden fees, subscriptions, or premium tiers. All templates and features are available at no cost.
+                        </div>
+                    </details>
+                    <details class="faq-item scroll-animate">
+                        <summary class="faq-question">
+                            <h3>Are the resume templates ATS-friendly?</h3>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Absolutely! All our resume templates are designed to be ATS (Applicant Tracking System) friendly. They use clean formatting and proper structure to ensure your resume passes through automated screening systems used by employers.
+                        </div>
+                    </details>
+                    <details class="faq-item scroll-animate">
+                        <summary class="faq-question">
+                            <h3>Do I need to create an account to use ResumeForge?</h3>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </summary>
+                        <div class="faq-answer">
+                            No account is required. Simply choose a template and start building your resume immediately. Your data stays in your browser for maximum privacy and security.
+                        </div>
+                    </details>
+                    <details class="faq-item scroll-animate">
+                        <summary class="faq-question">
+                            <h3>Can I download my resume as a PDF?</h3>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Yes, you can download your resume as a high-quality PDF file instantly. The PDF format ensures your resume looks professional and maintains its formatting across all devices and platforms.
+                        </div>
+                    </details>
+                    <details class="faq-item scroll-animate">
+                        <summary class="faq-question">
+                            <h3>Is my data secure?</h3>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Your privacy is our priority. All your resume data is stored locally in your browser and never sent to any server. You have complete control over your information.
+                        </div>
+                    </details>
+                    <details class="faq-item scroll-animate">
+                        <summary class="faq-question">
+                            <h3>Can I edit my resume after downloading?</h3>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Yes! Your resume data is saved in your browser, so you can return anytime to make edits and download updated versions of your resume.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container scroll-animate">
+                <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+                <h2 class="cta-title">Ready to Build Your Professional Resume?</h2>
+                <p class="cta-description">Join over 50,000 job seekers who have created stunning resumes with ResumeForge. It's free, fast, and effective.</p>
+                <button class="btn btn-white btn-lg" onclick="scrollToSection('templates')">
+                    Create My Free Resume
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        ResumeForge
+                    </a>
+                    <p class="footer-description">Free, open-source resume builder. Create professional, ATS-friendly resumes in minutes. No signup required.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/yourusername/resumeforge" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Product</h4>
+                    <ul class="footer-links">
+                        <li><button class="nav-link" onclick="scrollToSection('templates')">Templates</button></li>
+                        <li><button class="nav-link" onclick="scrollToSection('features')">Features</button></li>
+                        <li><button class="nav-link" onclick="scrollToSection('how-it-works')">How It Works</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><button class="nav-link" onclick="scrollToSection('faq')">FAQ</button></li>
+                        <li><a href="https://github.com/yourusername/resumeforge" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© <span id="year"></span> ResumeForge. Open source project. All rights reserved.</p>
+                <p class="footer-copyright">Made with ❤️ for job seekers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Template selection handler
+        function useTemplate(templateName) {
+            alert('Template "' + templateName + '" selected! In a full implementation, this would open the resume editor.');
+        }
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-animate elements
+        document.querySelectorAll('.scroll-animate, .feature-card, .template-card, .step, .testimonial-card, .faq-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add visible class to hero elements immediately
+        document.querySelectorAll('.hero-content, .hero-image').forEach(el => {
+            el.classList.add('visible');
+        });
+    </script>
+</body>
+</html>
