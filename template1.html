@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Minimalist - ResumeForge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f1f5f9; }
+    .editor { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
+    .sidebar { background: white; border-right: 1px solid #e2e8f0; padding: 20px; overflow-y: auto; position: sticky; top: 0; height: 100vh; }
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #06b6d4); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 18px; height: 18px; color: white; }
+    .logo-text { font-weight: 700; font-size: 16px; color: #0f172a; }
+    .back-btn { padding: 8px 16px; background: #f1f5f9; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; color: #475569; cursor: pointer; text-decoration: none; }
+    .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin: 20px 0 12px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #6366f1; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .btn { padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; width: 100%; margin-top: 10px; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4); }
+    .preview { padding: 40px; display: flex; justify-content: center; background: #e2e8f0; min-height: 100vh; }
+    .resume { width: 210mm; min-height: 297mm; background: white; padding: 50px 60px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .resume-header { text-align: center; border-bottom: 2px solid #0f172a; padding-bottom: 20px; margin-bottom: 25px; }
+    .name { font-size: 32px; font-weight: 700; color: #0f172a; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .title { font-size: 16px; color: #64748b; }
+    .contact { display: flex; justify-content: center; gap: 20px; margin-top: 12px; font-size: 13px; color: #64748b; flex-wrap: wrap; }
+    .section { margin-bottom: 25px; }
+    .section-header { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 15px; }
+    .item { margin-bottom: 18px; }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .item-title { font-weight: 600; color: #0f172a; font-size: 15px; }
+    .item-date { font-size: 13px; color: #64748b; }
+    .item-subtitle { font-size: 14px; color: #64748b; margin-bottom: 6px; }
+    .item-desc { font-size: 14px; color: #475569; line-height: 1.6; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill { padding: 6px 14px; background: #f1f5f9; border-radius: 4px; font-size: 13px; color: #374151; }
+    @media print { .sidebar { display: none; } .preview { padding: 0; background: white; } .resume { box-shadow: none; width: 100%; } }
+    @media (max-width: 900px) { .editor { grid-template-columns: 1fr; } .sidebar { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="editor">
+    <aside class="sidebar">
+      <div class="header">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <span class="logo-text">ResumeForge</span>
+        </a>
+        <a href="index.html" class="back-btn">← Back</a>
+      </div>
+      
+      <div class="section-title">Personal Information</div>
+      <div class="form-group"><label>Full Name</label><input type="text" id="name" value="Alexander Chen" oninput="update()"></div>
+      <div class="form-group"><label>Job Title</label><input type="text" id="title" value="Senior Product Designer" oninput="update()"></div>
+      <div class="form-group"><label>Email</label><input type="text" id="email" value="alex.chen@email.com" oninput="update()"></div>
+      <div class="form-group"><label>Phone</label><input type="text" id="phone" value="(555) 123-4567" oninput="update()"></div>
+      <div class="form-group"><label>Location</label><input type="text" id="location" value="San Francisco, CA" oninput="update()"></div>
+      <div class="form-group"><label>Website</label><input type="text" id="website" value="alexchen.design" oninput="update()"></div>
+      
+      <div class="section-title">Professional Summary</div>
+      <div class="form-group"><textarea id="summary" rows="4" oninput="update()">Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions. Proven track record of leading design teams and delivering impactful products.</textarea></div>
+      
+      <div class="section-title">Experience</div>
+      <div class="form-group"><label>Job Title</label><input type="text" id="job1" value="Senior Product Designer" oninput="update()"></div>
+      <div class="form-group"><label>Company</label><input type="text" id="company1" value="TechCorp Inc." oninput="update()"></div>
+      <div class="form-group"><label>Duration</label><input type="text" id="duration1" value="2020 - Present" oninput="update()"></div>
+      <div class="form-group"><label>Description</label><textarea id="desc1" rows="3" oninput="update()">Lead design initiatives for core product features. Collaborate with cross-functional teams to deliver seamless user experiences. Increased user engagement by 40% through redesigned onboarding flow.</textarea></div>
+      
+      <div class="form-group"><label>Job Title</label><input type="text" id="job2" value="Product Designer" oninput="update()"></div>
+      <div class="form-group"><label>Company</label><input type="text" id="company2" value="StartupXYZ" oninput="update()"></div>
+      <div class="form-group"><label>Duration</label><input type="text" id="duration2" value="2017 - 2020" oninput="update()"></div>
+      <div class="form-group"><label>Description</label><textarea id="desc2" rows="3" oninput="update()">Designed mobile and web applications from concept to launch. Conducted user research and usability testing to inform design decisions.</textarea></div>
+      
+      <div class="section-title">Education</div>
+      <div class="form-group"><label>Degree</label><input type="text" id="degree" value="BFA in Graphic Design" oninput="update()"></div>
+      <div class="form-group"><label>School</label><input type="text" id="school" value="California College of the Arts" oninput="update()"></div>
+      <div class="form-group"><label>Year</label><input type="text" id="year" value="2017" oninput="update()"></div>
+      
+      <div class="section-title">Skills</div>
+      <div class="form-group"><label>Skills (comma separated)</label><input type="text" id="skills" value="UI/UX Design, Figma, Prototyping, User Research, Design Systems, HTML/CSS" oninput="update()"></div>
+      
+      <button class="btn btn-primary" onclick="window.print()">📄 Download PDF</button>
+    </aside>
+    
+    <main class="preview">
+      <div class="resume">
+        <div class="resume-header">
+          <div class="name" id="r-name">Alexander Chen</div>
+          <div class="title" id="r-title">Senior Product Designer</div>
+          <div class="contact">
+            <span id="r-email">alex.chen@email.com</span>
+            <span id="r-phone">(555) 123-4567</span>
+            <span id="r-location">San Francisco, CA</span>
+            <span id="r-website">alexchen.design</span>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Professional Summary</div>
+          <div class="item-desc" id="r-summary">Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions. Proven track record of leading design teams and delivering impactful products.</div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Experience</div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title" id="r-job1">Senior Product Designer</span>
+              <span class="item-date" id="r-duration1">2020 - Present</span>
+            </div>
+            <div class="item-subtitle" id="r-company1">TechCorp Inc.</div>
+            <div class="item-desc" id="r-desc1">Lead design initiatives for core product features. Collaborate with cross-functional teams to deliver seamless user experiences. Increased user engagement by 40% through redesigned onboarding flow.</div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title" id="r-job2">Product Designer</span>
+              <span class="item-date" id="r-duration2">2017 - 2020</span>
+            </div>
+            <div class="item-subtitle" id="r-company2">StartupXYZ</div>
+            <div class="item-desc" id="r-desc2">Designed mobile and web applications from concept to launch. Conducted user research and usability testing to inform design decisions.</div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Education</div>
+          <div class="item">
+            <div class="item-header">
+              <span class="item-title" id="r-degree">BFA in Graphic Design</span>
+              <span class="item-date" id="r-year">2017</span>
+            </div>
+            <div class="item-subtitle" id="r-school">California College of the Arts</div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="section-header">Skills</div>
+          <div class="skills" id="r-skills">
+            <span class="skill">UI/UX Design</span>
+            <span class="skill">Figma</span>
+            <span class="skill">Prototyping</span>
+            <span class="skill">User Research</span>
+            <span class="skill">Design Systems</span>
+            <span class="skill">HTML/CSS</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    function update() {
+      document.getElementById('r-name').textContent = document.getElementById('name').value;
+      document.getElementById('r-title').textContent = document.getElementById('title').value;
+      document.getElementById('r-email').textContent = document.getElementById('email').value;
+      document.getElementById('r-phone').textContent = document.getElementById('phone').value;
+      document.getElementById('r-location').textContent = document.getElementById('location').value;
+      document.getElementById('r-website').textContent = document.getElementById('website').value;
+      document.getElementById('r-summary').textContent = document.getElementById('summary').value;
+      document.getElementById('r-job1').textContent = document.getElementById('job1').value;
+      document.getElementById('r-company1').textContent = document.getElementById('company1').value;
+      document.getElementById('r-duration1').textContent = document.getElementById('duration1').value;
+      document.getElementById('r-desc1').textContent = document.getElementById('desc1').value;
+      document.getElementById('r-job2').textContent = document.getElementById('job2').value;
+      document.getElementById('r-company2').textContent = document.getElementById('company2').value;
+      document.getElementById('r-duration2').textContent = document.getElementById('duration2').value;
+      document.getElementById('r-desc2').textContent = document.getElementById('desc2').value;
+      document.getElementById('r-degree').textContent = document.getElementById('degree').value;
+      document.getElementById('r-school').textContent = document.getElementById('school').value;
+      document.getElementById('r-year').textContent = document.getElementById('year').value;
+      
+      const skills = document.getElementById('skills').value.split(',').map(s => s.trim()).filter(s => s);
+      document.getElementById('r-skills').innerHTML = skills.map(s => `<span class="skill">${s}</span>`).join('');
+    }
+  </script>
+</body>
+</html>
