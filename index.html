@@ -3,378 +3,573 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ResumeForge | Free Resume Builder</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Space+Mono:wght@400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>ResumeForge | Free Professional Resume Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     :root {
-      --bg-primary: #F6F8FA;
-      --bg-dark: #0B0D10;
-      --accent: #2F8E92;
-      --accent-dark: #1a5f63;
-      --text-primary: #111216;
-      --text-secondary: #6B7280;
-      --card-shadow: 0 18px 40px rgba(0,0,0,0.10);
-      --card-shadow-hover: 0 24px 50px rgba(0,0,0,0.14);
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #06b6d4;
+      --accent: #f59e0b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
     }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     html { scroll-behavior: smooth; }
     
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
       overflow-x: hidden;
     }
     
-    /* Grain Overlay */
-    .grain-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.04;
-      z-index: 9999;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-    
     /* Navigation */
-    nav {
+    .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 16px 24px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 0 24px;
     }
     
     .nav-container {
-      max-width: 1280px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 72px;
     }
     
     .logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       text-decoration: none;
     }
     
-    .logo svg { width: 24px; height: 24px; color: var(--accent); }
-    .logo span { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; color: var(--text-primary); }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-icon svg { width: 22px; height: 22px; color: white; }
+    
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--dark);
+    }
     
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 40px;
     }
     
     .nav-links a {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--gray);
       text-decoration: none;
       transition: color 0.2s;
     }
     
-    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover { color: var(--primary); }
     
-    .btn-primary {
+    .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
-      background: var(--accent);
-      color: white;
-      border-radius: 12px;
-      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
       font-weight: 600;
       text-decoration: none;
-      border: none;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
     }
     
     .btn-primary:hover {
-      background: var(--accent-dark);
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
     }
     
-    /* Sections */
-    section {
-      position: relative;
-      width: 100%;
+    .btn-outline {
+      background: white;
+      color: var(--dark);
+      border: 2px solid var(--gray-light);
     }
     
-    .section-pinned {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
     
     /* Hero Section */
-    .hero-section {
-      background: var(--bg-primary);
-      padding-top: 80px;
-    }
-    
-    .hero-photo {
-      position: absolute;
-      left: 6vw;
-      top: 14vh;
-      width: 44vw;
-      height: 72vh;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      animation: slideInLeft 0.9s ease-out;
-    }
-    
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .hero-content {
-      position: absolute;
-      left: 54vw;
-      top: 14vh;
-      width: 40vw;
-      height: 72vh;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: var(--card-shadow);
+    .hero {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 8%;
-      animation: slideInRight 0.9s ease-out;
+      align-items: center;
+      padding: 120px 24px 80px;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f5f3ff 100%);
+      position: relative;
+      overflow: hidden;
     }
     
-    .hero-headline {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: clamp(32px, 4vw, 56px);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--text-primary);
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: white;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      box-shadow: var(--shadow);
       margin-bottom: 24px;
     }
     
-    .hero-headline .accent { color: var(--accent); }
+    .hero-badge svg { width: 16px; height: 16px; }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     
     .hero-subtitle {
       font-size: 18px;
-      color: var(--text-secondary);
+      color: var(--gray);
       margin-bottom: 32px;
-      max-width: 90%;
+      max-width: 500px;
     }
     
-    .hero-micro {
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-top: 12px;
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
     }
     
-    /* Template Section */
-    .templates-section {
-      background: var(--bg-primary);
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+    }
+    
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      color: var(--dark);
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: var(--gray);
+    }
+    
+    .hero-visual {
+      position: relative;
+    }
+    
+    .resume-preview {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-xl);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+    }
+    
+    .resume-preview:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    
+    .preview-header {
+      text-align: center;
+      border-bottom: 2px solid var(--dark);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .preview-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--dark);
+    }
+    
+    .preview-title {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+    
+    .preview-section {
+      margin-bottom: 16px;
+    }
+    
+    .preview-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--dark);
+      border-bottom: 1px solid var(--gray-light);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .preview-line {
+      height: 8px;
+      background: var(--gray-light);
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    
+    .preview-line.short { width: 60%; }
+    
+    /* Templates Section */
+    .templates {
       padding: 100px 24px;
+      background: white;
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
     }
     
     .section-label {
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      color: var(--text-secondary);
-      letter-spacing: 0.1em;
+      font-size: 13px;
+      font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 48px;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--gray);
     }
     
     .templates-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 24px;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     
     .template-card {
       background: white;
-      border-radius: 28px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: var(--card-shadow);
+      box-shadow: var(--shadow);
       transition: all 0.3s ease;
       cursor: pointer;
+      border: 2px solid transparent;
     }
     
     .template-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--card-shadow-hover);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
     }
     
-    .template-preview {
+    .template-preview-mini {
       aspect-ratio: 3/4;
-      overflow: hidden;
+      background: #f1f5f9;
+      padding: 16px;
       position: relative;
+      overflow: hidden;
     }
     
-    .template-preview img {
-      width: 100%;
+    .mini-resume {
+      background: white;
+      border-radius: 6px;
       height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+      padding: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transform: scale(0.9);
+      transform-origin: top center;
     }
     
-    .template-card:hover .template-preview img {
-      transform: scale(1.05);
+    .mini-header {
+      text-align: center;
+      border-bottom: 1px solid var(--dark);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    
+    .mini-name {
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    
+    .mini-line {
+      height: 3px;
+      background: var(--gray-light);
+      border-radius: 2px;
+      margin-bottom: 3px;
     }
     
     .template-info {
-      padding: 20px;
+      padding: 16px;
     }
     
     .template-name {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 16px;
-      color: var(--text-primary);
+      font-size: 15px;
+      color: var(--dark);
       margin-bottom: 4px;
     }
     
     .template-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
+      font-size: 12px;
+      color: var(--gray);
       margin-bottom: 12px;
     }
     
-    .template-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+    .template-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: var(--light);
+      color: var(--primary);
+      border: none;
+      border-radius: 8px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--accent);
+      text-align: center;
       text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
     }
     
-    .template-link:hover { text-decoration: underline; }
+    .template-card:hover .template-btn {
+      background: var(--primary);
+      color: white;
+    }
     
     /* Features Section */
-    .features-section {
-      background: var(--bg-primary);
+    .features {
       padding: 100px 24px;
-    }
-    
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: clamp(28px, 3.5vw, 48px);
-      text-align: center;
-      color: var(--text-primary);
-      margin-bottom: 64px;
+      background: linear-gradient(180deg, var(--light) 0%, white 100%);
     }
     
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
     .feature-card {
       background: white;
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.3s ease;
+      border-radius: 20px;
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
     }
     
     .feature-card:hover {
       transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
     
     .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(47, 142, 146, 0.1);
-      border-radius: 12px;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(6,182,212,0.1));
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     
-    .feature-icon svg { width: 24px; height: 24px; color: var(--accent); }
+    .feature-icon svg { width: 26px; height: 26px; color: var(--primary); }
     
     .feature-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 18px;
-      color: var(--text-primary);
+      font-size: 20px;
+      color: var(--dark);
       margin-bottom: 12px;
     }
     
     .feature-desc {
       font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    
+    /* How It Works */
+    .how-it-works {
+      padding: 100px 24px;
+      background: white;
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .step-card {
+      text-align: center;
+      position: relative;
+    }
+    
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      color: white;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+    }
+    
+    .step-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    
+    .step-desc {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
     }
     
     /* Testimonials */
-    .testimonials-section {
-      background: var(--bg-primary);
+    .testimonials {
       padding: 100px 24px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
     }
     
     .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 64px;
-      max-width: 1100px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
       margin: 0 auto;
-      align-items: start;
-    }
-    
-    .testimonial-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
     }
     
     .testimonial-card {
       background: white;
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: var(--card-shadow);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow);
     }
     
-    .testimonial-card:nth-child(2) { margin-left: 40px; }
-    .testimonial-card:nth-child(3) { margin-left: 20px; }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-stars svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      fill: var(--accent);
+    }
     
     .testimonial-text {
       font-size: 15px;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-      line-height: 1.6;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
     
     .testimonial-author {
@@ -384,61 +579,10 @@
     }
     
     .testimonial-avatar {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    
-    .testimonial-name {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--text-primary);
-    }
-    
-    .testimonial-role {
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-    
-    /* Steps Section */
-    .steps-section {
-      background: var(--bg-primary);
-      padding: 100px 24px;
-    }
-    
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .step-card {
-      background: white;
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: var(--card-shadow);
-      position: relative;
-    }
-    
-    .step-card:nth-child(2) { margin-top: 40px; }
-    
-    .step-number {
-      position: absolute;
-      top: -16px;
-      left: -16px;
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -447,133 +591,88 @@
       font-size: 16px;
     }
     
-    .step-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(47, 142, 146, 0.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      margin-top: 8px;
-    }
-    
-    .step-icon svg { width: 24px; height: 24px; color: var(--accent); }
-    
-    .step-title {
-      font-family: 'Montserrat', sans-serif;
+    .testimonial-name {
       font-weight: 700;
-      font-size: 18px;
-      color: var(--text-primary);
-      margin-bottom: 8px;
+      font-size: 15px;
+      color: var(--dark);
     }
     
-    .step-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--gray);
     }
     
     /* CTA Section */
-    .cta-section {
-      background: var(--bg-dark);
+    .cta {
       padding: 100px 24px;
-    }
-    
-    .cta-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: center;
-    }
-    
-    .cta-content {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      padding: 48px;
-      box-shadow: var(--card-shadow);
+      background: var(--dark);
+      text-align: center;
     }
     
     .cta-title {
       font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-weight: 800;
+      font-size: clamp(36px, 5vw, 56px);
       color: white;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     
     .cta-subtitle {
       font-size: 18px;
-      color: #9CA3AF;
-      margin-bottom: 32px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
-    .cta-micro {
-      font-size: 13px;
-      color: #6B7280;
-      margin-top: 12px;
-    }
-    
-    .cta-photo {
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      height: 400px;
-    }
-    
-    .cta-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .cta-btn {
+      padding: 16px 40px;
+      font-size: 17px;
     }
     
     /* Footer */
     footer {
-      background: var(--bg-dark);
-      padding: 64px 24px 32px;
+      background: #020617;
+      padding: 60px 24px 30px;
     }
     
     .footer-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 64px;
-      margin-bottom: 48px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
     }
     
     .footer-brand p {
-      color: #9CA3AF;
-      font-size: 14px;
-      margin-top: 12px;
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+      margin-top: 16px;
+      line-height: 1.7;
     }
     
     .footer-title {
-      font-weight: 600;
-      color: white;
-      margin-bottom: 16px;
+      font-weight: 700;
       font-size: 14px;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     
     .footer-links {
       list-style: none;
     }
     
-    .footer-links li { margin-bottom: 10px; }
+    .footer-links li { margin-bottom: 12px; }
     
     .footer-links a {
-      color: #9CA3AF;
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
       font-size: 14px;
       transition: color 0.2s;
@@ -583,1435 +682,581 @@
     
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 24px;
+      padding-top: 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     
     .footer-bottom p {
-      color: #6B7280;
-      font-size: 13px;
-    }
-    
-    /* Animations */
-    @keyframes slideInLeft {
-      from { transform: translateX(-60vw); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideInRight {
-      from { transform: translateX(60vw); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes fadeInUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-    
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Template Editor Modal */
-    .template-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--bg-primary);
-      z-index: 2000;
-      overflow-y: auto;
-    }
-    
-    .template-modal.active {
-      display: block;
-    }
-    
-    .editor-header {
-      position: sticky;
-      top: 0;
-      background: white;
-      border-bottom: 1px solid #E5E7EB;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 100;
-    }
-    
-    .editor-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-    }
-    
-    .editor-actions {
-      display: flex;
-      gap: 12px;
-    }
-    
-    .btn-secondary {
-      padding: 10px 20px;
-      background: white;
-      border: 1px solid #D1D5DB;
-      border-radius: 8px;
+      color: rgba(255,255,255,0.5);
       font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .btn-secondary:hover {
-      background: #F9FAFB;
-    }
-    
-    .editor-layout {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      min-height: calc(100vh - 70px);
-    }
-    
-    .editor-sidebar {
-      background: white;
-      border-right: 1px solid #E5E7EB;
-      padding: 24px;
-      overflow-y: auto;
-    }
-    
-    .form-section-title {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-    
-    .form-group {
-      margin-bottom: 16px;
-    }
-    
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
-      color: #374151;
-      margin-bottom: 6px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #D1D5DB;
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    
-    .form-group textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    
-    .preview-area {
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: #E5E7EB;
-      overflow-y: auto;
-    }
-    
-    .resume-page {
-      width: 210mm;
-      min-height: 297mm;
-      background: white;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    
-    /* Template 1 - Minimalist */
-    .template-1 .resume-header {
-      text-align: center;
-      padding: 48px 56px;
-      border-bottom: 2px solid var(--text-primary);
-    }
-    
-    .template-1 .resume-name {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    
-    .template-1 .resume-title {
-      font-size: 16px;
-      color: var(--text-secondary);
-    }
-    
-    .template-1 .resume-contact {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    
-    .template-1 .resume-section {
-      padding: 24px 56px;
-    }
-    
-    .template-1 .section-title-resume {
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-primary);
-      padding-bottom: 8px;
-      border-bottom: 1px solid #E5E7EB;
-      margin-bottom: 16px;
-    }
-    
-    .template-1 .experience-item {
-      margin-bottom: 20px;
-    }
-    
-    .template-1 .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 4px;
-    }
-    
-    .template-1 .exp-role {
-      font-weight: 600;
-      color: var(--text-primary);
-      font-size: 15px;
-    }
-    
-    .template-1 .exp-date {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    
-    .template-1 .exp-company {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-    
-    .template-1 .exp-desc {
-      font-size: 14px;
-      color: #4B5563;
-      line-height: 1.6;
-    }
-    
-    .template-1 .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .template-1 .skill-tag {
-      padding: 6px 12px;
-      background: #F3F4F6;
-      border-radius: 4px;
-      font-size: 13px;
-      color: #374151;
-    }
-    
-    /* Template 2 - Modern */
-    .template-2 .resume-page {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-    }
-    
-    .template-2 .resume-sidebar {
-      background: var(--accent);
-      color: white;
-      padding: 40px 28px;
-    }
-    
-    .template-2 .sidebar-name {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    
-    .template-2 .sidebar-title {
-      font-size: 14px;
-      opacity: 0.9;
-      margin-bottom: 32px;
-    }
-    
-    .template-2 .sidebar-section {
-      margin-bottom: 28px;
-    }
-    
-    .template-2 .sidebar-section-title {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    
-    .template-2 .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      margin-bottom: 10px;
-      opacity: 0.95;
-    }
-    
-    .template-2 .skill-item {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 4px;
-      font-size: 12px;
-      margin: 0 6px 6px 0;
-    }
-    
-    .template-2 .resume-main {
-      padding: 40px 32px;
-    }
-    
-    .template-2 .main-section {
-      margin-bottom: 28px;
-    }
-    
-    .template-2 .main-section-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--accent);
-    }
-    
-    /* Template 3 - Bold */
-    .template-3 .resume-header {
-      background: var(--text-primary);
-      color: white;
-      padding: 48px 56px;
-      position: relative;
-    }
-    
-    .template-3 .resume-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: var(--accent);
-    }
-    
-    .template-3 .resume-name {
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    
-    .template-3 .resume-title {
-      font-size: 20px;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    
-    .template-3 .resume-contact {
-      display: flex;
-      gap: 24px;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #9CA3AF;
-    }
-    
-    .template-3 .resume-body {
-      padding: 40px 56px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    
-    .template-3 .main-column {
-      grid-column: 1 / -1;
-    }
-    
-    .template-3 .resume-section-title {
-      font-size: 20px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 3px solid var(--accent);
-      display: inline-block;
-    }
-    
-    .template-3 .summary-box {
-      background: #F9FAFB;
-      border-left: 4px solid var(--accent);
-      padding: 20px 24px;
-      font-size: 15px;
-      color: #4B5563;
-      line-height: 1.7;
-    }
-    
-    .template-3 .experience-item {
-      margin-bottom: 24px;
-    }
-    
-    .template-3 .exp-role {
-      font-weight: 700;
-      color: var(--text-primary);
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-    
-    .template-3 .exp-meta {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-    
-    .template-3 .exp-company {
-      color: var(--accent);
-      font-weight: 600;
-    }
-    
-    .template-3 .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    
-    .template-3 .skill-category-title {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-    
-    .template-3 .skill-list {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-    
-    /* Template 4 - Creator */
-    .template-4 .resume-page {
-      position: relative;
-      padding: 48px;
-    }
-    
-    .template-4 .resume-page::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 8px;
-      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 50%, var(--accent) 100%);
-    }
-    
-    .template-4 .resume-header {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 32px;
-      align-items: start;
-      margin-bottom: 32px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #E5E7EB;
-    }
-    
-    .template-4 .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-    }
-    
-    .template-4 .header-content {
-      padding-top: 8px;
-    }
-    
-    .template-4 .resume-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 42px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    
-    .template-4 .resume-title {
-      font-size: 18px;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-    
-    .template-4 .resume-contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    
-    .template-4 .resume-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-    }
-    
-    .template-4 .resume-section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .template-4 .resume-section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #E5E7EB;
-    }
-    
-    .template-4 .experience-item {
-      margin-bottom: 20px;
-      position: relative;
-      padding-left: 20px;
-      border-left: 2px solid var(--accent);
-    }
-    
-    .template-4 .experience-item::before {
-      content: '';
-      position: absolute;
-      left: -5px;
-      top: 4px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    
-    .template-4 .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .template-4 .skill-tag {
-      padding: 6px 14px;
-      background: var(--text-primary);
-      color: white;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-    
-    .template-4 .project-item {
-      margin-bottom: 16px;
-      padding: 16px;
-      background: #F9FAFB;
-      border-radius: 8px;
-    }
-    
-    /* Print Styles */
-    @media print {
-      nav, .editor-header, .editor-sidebar { display: none !important; }
-      .preview-area {
-        padding: 0 !important;
-        background: white !important;
-      }
-      .resume-page {
-        box-shadow: none !important;
-        width: 100% !important;
-        margin: 0 !important;
-      }
     }
     
     /* Responsive */
-    @media (max-width: 1024px) {
-      .hero-photo, .hero-content {
-        position: relative;
-        left: auto;
-        top: auto;
-        width: 90%;
-        height: auto;
-        margin: 20px auto;
-      }
-      
-      .hero-section {
-        height: auto;
-        padding: 100px 20px 40px;
-      }
-      
-      .hero-headline {
-        font-size: 28px;
-      }
-      
-      .templates-grid,
-      .features-grid,
-      .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .testimonials-grid,
-      .cta-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      
-      .editor-layout {
-        grid-template-columns: 1fr;
-      }
-      
-      .editor-sidebar {
-        display: none;
-      }
-      
-      .resume-page {
-        width: 100%;
-      }
-      
-      .template-2 .resume-page,
-      .template-3 .resume-body,
-      .template-4 .resume-grid,
-      .template-4 .resume-header {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 1200px) {
+      .templates-grid { grid-template-columns: repeat(3, 1fr); }
     }
     
-    @media (max-width: 640px) {
-      .templates-grid,
-      .features-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-      
+    @media (max-width: 900px) {
+      .hero-container { grid-template-columns: 1fr; text-align: center; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { display: none; }
       .nav-links { display: none; }
-      
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .testimonial-card:nth-child(2),
-      .testimonial-card:nth-child(3) {
-        margin-left: 0;
-      }
-      
-      .step-card:nth-child(2) {
-        margin-top: 0;
-      }
+      .templates-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    
+    @media (max-width: 600px) {
+      .templates-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; }
+      .hero-stats { flex-direction: column; gap: 20px; }
     }
   </style>
+<base target="_blank">
 </head>
 <body>
-  <!-- Grain Overlay -->
-  <div class="grain-overlay"></div>
-  
   <!-- Navigation -->
-  <nav>
+  <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo" onclick="showLanding()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-        </svg>
-        <span>ResumeForge</span>
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+        </div>
+        <span class="logo-text">ResumeForge</span>
       </a>
       <div class="nav-links">
         <a href="#templates">Templates</a>
         <a href="#features">Features</a>
-        <a href="#how-it-works">How it works</a>
+        <a href="#how-it-works">How It Works</a>
         <a href="#testimonials">Reviews</a>
       </div>
-      <a href="#templates" class="btn-primary">Start Building — Free</a>
+      <a href="#templates" class="btn btn-primary">Get Started Free</a>
     </div>
   </nav>
-  
-  <!-- Landing Page -->
-  <div id="landing-page">
-    <!-- Hero Section -->
-    <section class="hero-section section-pinned">
-      <div class="hero-photo">
-        <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&q=80" alt="Person writing">
-      </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
       <div class="hero-content">
-        <h1 class="hero-headline">
-          Build a Resume That <span class="accent">Opens Doors.</span>
-        </h1>
-        <p class="hero-subtitle">Free, ATS-friendly templates. Edit in real time. Export to PDF in seconds.</p>
-        <a href="#templates" class="btn-primary">Start Building — Free</a>
-        <p class="hero-micro">No signup required.</p>
-      </div>
-    </section>
-    
-    <!-- Templates Section -->
-    <section id="templates" class="templates-section">
-      <p class="section-label">Choose a Template</p>
-      <div class="templates-grid">
-        <div class="template-card" onclick="openTemplate(1)">
-          <div class="template-preview">
-            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80" alt="Minimalist Template">
-          </div>
-          <div class="template-info">
-            <h3 class="template-name">The Minimalist</h3>
-            <p class="template-desc">Clean and elegant design for traditional industries</p>
-            <span class="template-link">Use Template →</span>
-          </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          100% Free - No Signup Required
         </div>
-        
-        <div class="template-card" onclick="openTemplate(2)">
-          <div class="template-preview">
-            <img src="https://images.unsplash.com/photo-1626197031507-c17099753214?w=400&q=80" alt="Modern Template">
-          </div>
-          <div class="template-info">
-            <h3 class="template-name">The Modern</h3>
-            <p class="template-desc">Two-column layout with a contemporary feel</p>
-            <span class="template-link">Use Template →</span>
-          </div>
-        </div>
-        
-        <div class="template-card" onclick="openTemplate(3)">
-          <div class="template-preview">
-            <img src="https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?w=400&q=80" alt="Bold Template">
-          </div>
-          <div class="template-info">
-            <h3 class="template-name">The Bold</h3>
-            <p class="template-desc">Strong visual impact for creative professionals</p>
-            <span class="template-link">Use Template →</span>
-          </div>
-        </div>
-        
-        <div class="template-card" onclick="openTemplate(4)">
-          <div class="template-preview">
-            <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=400&q=80" alt="Creator Template">
-          </div>
-          <div class="template-info">
-            <h3 class="template-name">The Creator</h3>
-            <p class="template-desc">Unique layout for designers and artists</p>
-            <span class="template-link">Use Template →</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section id="features" class="features-section">
-      <h2 class="section-title">Everything you need to get hired.</h2>
-      <div class="features-grid">
-        <div class="feature-card animate-on-scroll">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <h3 class="feature-title">ATS-Friendly</h3>
-          <p class="feature-desc">Clean typography, single-column logic, and readable formatting that passes screening software.</p>
-        </div>
-        
-        <div class="feature-card animate-on-scroll">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-          </div>
-          <h3 class="feature-title">Real-Time Preview</h3>
-          <p class="feature-desc">See changes instantly as you type. No more guessing what the final PDF will look like.</p>
-        </div>
-        
-        <div class="feature-card animate-on-scroll">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h3 class="feature-title">Privacy First</h3>
-          <p class="feature-desc">Your data stays in your browser. Export when you're ready—nothing is stored on our servers.</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-      <div class="testimonials-grid">
-        <div class="animate-on-scroll">
-          <h2 class="section-title" style="text-align: left;">Hired by people like you.</h2>
-          <p style="color: var(--text-secondary); font-size: 18px;">From interns to executives—thousands of job seekers use ResumeForge.</p>
-        </div>
-        
-        <div class="testimonial-cards">
-          <div class="testimonial-card animate-on-scroll">
-            <p class="testimonial-text">"I got callbacks within a week. The templates look professional without being overdesigned."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">AC</div>
-              <div>
-                <p class="testimonial-name">Ava Chen</p>
-                <p class="testimonial-role">Product Designer</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="testimonial-card animate-on-scroll">
-            <p class="testimonial-text">"I'm not a writer. The prompts helped me fill in the blanks and sound confident."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">MJ</div>
-              <div>
-                <p class="testimonial-name">Marcus Johnson</p>
-                <p class="testimonial-role">Operations Manager</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="testimonial-card animate-on-scroll">
-            <p class="testimonial-text">"Free, fast, and no login. I recommend it to everyone in my network."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">PP</div>
-              <div>
-                <p class="testimonial-name">Priya Patel</p>
-                <p class="testimonial-role">Software Engineer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Steps Section -->
-    <section id="how-it-works" class="steps-section">
-      <h2 class="section-title">How it works</h2>
-      <div class="steps-grid">
-        <div class="step-card animate-on-scroll">
-          <div class="step-number">1</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-          </div>
-          <h3 class="step-title">Pick a template</h3>
-          <p class="step-desc">Choose from designs built for clarity and speed.</p>
-        </div>
-        
-        <div class="step-card animate-on-scroll">
-          <div class="step-number">2</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </div>
-          <h3 class="step-title">Fill in your story</h3>
-          <p class="step-desc">Add experience, skills, and education with guided prompts.</p>
-        </div>
-        
-        <div class="step-card animate-on-scroll">
-          <div class="step-number">3</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <h1 class="hero-title">Build a Professional Resume That <span>Gets You Hired</span></h1>
+        <p class="hero-subtitle">Create an ATS-friendly resume in minutes. Choose from 10+ professionally designed templates, customize with ease, and download as PDF.</p>
+        <div class="hero-buttons">
+          <a href="#templates" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
+            Create My Resume
+          </a>
+          <a href="#templates" class="btn btn-outline">View Templates</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Resumes Created</span>
           </div>
-          <h3 class="step-title">Export & apply</h3>
-          <p class="step-desc">Download a PDF optimized for ATS and human eyes.</p>
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Pro Templates</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Success Rate</span>
+          </div>
         </div>
       </div>
-    </section>
+      <div class="hero-visual">
+        <div class="resume-preview">
+          <div class="preview-header">
+            <div class="preview-name">JOHN ANDERSON</div>
+            <div class="preview-title">Senior Product Designer</div>
+          </div>
+          <div class="preview-section">
+            <div class="preview-section-title">Experience</div>
+            <div class="preview-line"></div>
+            <div class="preview-line short"></div>
+          </div>
+          <div class="preview-section">
+            <div class="preview-section-title">Education</div>
+            <div class="preview-line"></div>
+            <div class="preview-line short"></div>
+          </div>
+          <div class="preview-section">
+            <div class="preview-section-title">Skills</div>
+            <div class="preview-line"></div>
+            <div class="preview-line short"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates Section -->
+  <section id="templates" class="templates">
+    <div class="section-header">
+      <p class="section-label">Professional Templates</p>
+      <h2 class="section-title">Choose Your Perfect Design</h2>
+      <p class="section-subtitle">10+ ATS-optimized templates designed by hiring professionals. Each template is fully customizable and free to use.</p>
+    </div>
     
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="cta-container">
-        <div class="cta-content animate-on-scroll">
-          <h2 class="cta-title">Ready When You Are.</h2>
-          <p class="cta-subtitle">Build your resume now. Export in seconds. Start applying today.</p>
-          <a href="#templates" class="btn-primary">Start Building — Free</a>
-          <p class="cta-micro">No credit card. No signup.</p>
+    <div class="templates-grid">
+      <!-- Template 1: Minimalist -->
+      <div class="template-card">
+        <div class="template-preview-mini">
+          <div class="mini-resume">
+            <div class="mini-header">
+              <div class="mini-name">JOHN DOE</div>
+            </div>
+            <div class="mini-line"></div>
+            <div class="mini-line short"></div>
+            <div style="margin-top: 8px;">
+              <div class="mini-line" style="width: 80%;"></div>
+              <div class="mini-line" style="width: 60%;"></div>
+            </div>
+          </div>
         </div>
-        <div class="cta-photo animate-on-scroll">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Happy professional">
+        <div class="template-info">
+          <h3 class="template-name">The Minimalist</h3>
+          <p class="template-desc">Clean & elegant for traditional industries</p>
+          <a href="template1.html" class="template-btn">Use Template</a>
         </div>
       </div>
-    </section>
+      
+      <!-- Template 2: Modern -->
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+          <div class="mini-resume" style="display: grid; grid-template-columns: 1fr 2fr; gap: 8px; background: transparent; box-shadow: none;">
+            <div style="background: rgba(255,255,255,0.9); border-radius: 4px; padding: 8px;">
+              <div class="mini-line" style="background: #6366f1;"></div>
+            </div>
+            <div style="background: white; border-radius: 4px; padding: 8px;">
+              <div class="mini-line"></div>
+              <div class="mini-line short"></div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Modern</h3>
+          <p class="template-desc">Two-column with contemporary feel</p>
+          <a href="template2.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 3: Bold -->
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: #0f172a;">
+          <div class="mini-resume" style="background: transparent; box-shadow: none; color: white;">
+            <div style="text-align: center; border-bottom: 2px solid #6366f1; padding-bottom: 8px; margin-bottom: 8px;">
+              <div style="font-size: 10px; font-weight: 800;">NAME</div>
+            </div>
+            <div class="mini-line" style="background: rgba(255,255,255,0.3);"></div>
+            <div class="mini-line" style="background: rgba(255,255,255,0.3); width: 70%;"></div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Bold</h3>
+          <p class="template-desc">Strong impact for creative pros</p>
+          <a href="template3.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 4: Executive -->
+      <div class="template-card">
+        <div class="template-preview-mini">
+          <div class="mini-resume" style="font-family: 'Playfair Display', serif;">
+            <div style="text-align: center; border-bottom: 1px solid #0f172a; padding-bottom: 6px;">
+              <div style="font-size: 10px; font-weight: 700; color: #0f172a;">Executive</div>
+            </div>
+            <div style="margin-top: 8px;">
+              <div class="mini-line"></div>
+              <div class="mini-line" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Executive</h3>
+          <p class="template-desc">Sophisticated for senior roles</p>
+          <a href="template4.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 5: Creative -->
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+          <div class="mini-resume">
+            <div style="display: flex; gap: 8px;">
+              <div style="width: 24px; height: 24px; background: linear-gradient(135deg, #f59e0b, #ef4444); border-radius: 50%;"></div>
+              <div style="flex: 1;">
+                <div class="mini-line"></div>
+                <div class="mini-line short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Creative</h3>
+          <p class="template-desc">Unique layout for designers</p>
+          <a href="template5.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 6: Technical -->
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: #1e293b;">
+          <div class="mini-resume" style="background: #0f172a; color: #06b6d4; font-family: monospace;">
+            <div style="font-size: 8px; border-bottom: 1px solid #06b6d4; padding-bottom: 4px;">&lt;developer&gt;</div>
+            <div style="margin-top: 8px;">
+              <div class="mini-line" style="background: #06b6d4; opacity: 0.5;"></div>
+              <div class="mini-line" style="background: #06b6d4; opacity: 0.3; width: 70%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Technical</h3>
+          <p class="template-desc">Perfect for developers & engineers</p>
+          <a href="template6.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 7: Academic -->
+      <div class="template-card">
+        <div class="template-preview-mini">
+          <div class="mini-resume">
+            <div style="text-align: center;">
+              <div style="font-size: 8px; font-weight: 700; color: #7c3aed;">CURRICULUM VITAE</div>
+            </div>
+            <div style="margin-top: 8px; border-left: 2px solid #7c3aed; padding-left: 6px;">
+              <div class="mini-line"></div>
+              <div class="mini-line short"></div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Academic</h3>
+          <p class="template-desc">CV format for researchers</p>
+          <a href="template7.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 8: Compact -->
+      <div class="template-card">
+        <div class="template-preview-mini">
+          <div class="mini-resume" style="padding: 8px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+              <div>
+                <div class="mini-line" style="height: 4px;"></div>
+                <div class="mini-line" style="height: 4px; width: 80%;"></div>
+              </div>
+              <div>
+                <div class="mini-line" style="height: 4px;"></div>
+                <div class="mini-line" style="height: 4px; width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Compact</h3>
+          <p class="template-desc">Fits more on one page</p>
+          <a href="template8.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 9: Infographic -->
+      <div class="template-card">
+        <div class="template-preview-mini" style="background: linear-gradient(135deg, #10b981, #06b6d4);">
+          <div class="mini-resume">
+            <div style="display: flex; gap: 6px; margin-bottom: 6px;">
+              <div style="width: 16px; height: 16px; background: #10b981; border-radius: 4px;"></div>
+              <div style="width: 16px; height: 16px; background: #06b6d4; border-radius: 4px;"></div>
+              <div style="width: 16px; height: 16px; background: #f59e0b; border-radius: 4px;"></div>
+            </div>
+            <div class="mini-line"></div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Infographic</h3>
+          <p class="template-desc">Visual skills & achievements</p>
+          <a href="template9.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+      
+      <!-- Template 10: Simple -->
+      <div class="template-card">
+        <div class="template-preview-mini">
+          <div class="mini-resume" style="border: 2px solid #e2e8f0;">
+            <div style="text-align: center;">
+              <div style="font-size: 10px; font-weight: 600; color: #334155;">Simple & Clean</div>
+            </div>
+            <div style="margin-top: 8px;">
+              <div class="mini-line" style="background: #cbd5e1;"></div>
+              <div class="mini-line" style="background: #cbd5e1; width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="template-info">
+          <h3 class="template-name">The Simple</h3>
+          <p class="template-desc">Basic & straightforward</p>
+          <a href="template10.html" class="template-btn">Use Template</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="section-header">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title">Everything You Need to Get Hired</h2>
+    </div>
     
-    <!-- Footer -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a href="#" class="logo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-              </svg>
-              <span style="color: white;">ResumeForge</span>
-            </a>
-            <p>Free resume builder. Built for job seekers who want to stand out.</p>
-          </div>
-          
-          <div>
-            <h4 class="footer-title">Product</h4>
-            <ul class="footer-links">
-              <li><a href="#templates">Templates</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#how-it-works">How it works</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 class="footer-title">Company</h4>
-            <ul class="footer-links">
-              <li><a href="#testimonials">Reviews</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms</a></li>
-            </ul>
-          </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
         </div>
-        
-        <div class="footer-bottom">
-          <p>© 2025 ResumeForge. All rights reserved.</p>
-          <p>Made with care for job seekers everywhere.</p>
+        <h3 class="feature-title">ATS-Friendly Format</h3>
+        <p class="feature-desc">Our templates are optimized to pass Applicant Tracking Systems. Clean formatting that robots and recruiters love.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
         </div>
+        <h3 class="feature-title">10+ Pro Templates</h3>
+        <p class="feature-desc">Choose from professionally designed templates for every industry. From minimalist to creative, find your perfect match.</p>
       </div>
-    </footer>
-  </div>
-  
-  <!-- Template Editor Modal -->
-  <div id="template-modal" class="template-modal">
-    <div class="editor-header">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <button class="btn-secondary" onclick="showLanding()">← Back</button>
-        <span class="editor-title" id="editor-title">The Minimalist</span>
-      </div>
-      <div class="editor-actions">
-        <button class="btn-secondary" onclick="resetTemplate()">Reset</button>
-        <button class="btn-primary" onclick="window.print()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          Download PDF
-        </button>
+        </div>
+        <h3 class="feature-title">Free PDF Download</h3>
+        <p class="feature-desc">Download your resume as a high-quality PDF. No watermarks, no hidden fees, completely free.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+        </div>
+        <h3 class="feature-title">Easy Customization</h3>
+        <p class="feature-desc">Edit sections, change colors, and rearrange content with our intuitive editor. No design skills needed.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">Privacy Protected</h3>
+        <p class="feature-desc">Your data stays on your device. We don't store your personal information on our servers.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">Mobile Friendly</h3>
+        <p class="feature-desc">Create and edit your resume on any device. Our responsive design works perfectly on phones and tablets.</p>
       </div>
     </div>
-    
-    <div class="editor-layout">
-      <aside class="editor-sidebar">
-        <div class="form-section-title">Personal Info</div>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="inputName" value="Alexander Chen" oninput="updateResume()">
-        </div>
-        <div class="form-group">
-          <label>Job Title</label>
-          <input type="text" id="inputTitle" value="Senior Product Designer" oninput="updateResume()">
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="inputEmail" value="alex.chen@email.com" oninput="updateResume()">
-        </div>
-        <div class="form-group">
-          <label>Phone</label>
-          <input type="tel" id="inputPhone" value="(555) 123-4567" oninput="updateResume()">
-        </div>
-        <div class="form-group">
-          <label>Location</label>
-          <input type="text" id="inputLocation" value="San Francisco, CA" oninput="updateResume()">
-        </div>
-        <div class="form-group" id="website-group" style="display: none;">
-          <label>Website</label>
-          <input type="text" id="inputWebsite" value="mayarodriguez.co" oninput="updateResume()">
-        </div>
-        
-        <div class="form-section-title" style="margin-top: 24px;">Summary</div>
-        <div class="form-group">
-          <textarea id="inputSummary" rows="4" oninput="updateResume()">Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions.</textarea>
-        </div>
-        
-        <div class="form-section-title" style="margin-top: 24px;">Experience</div>
-        <div class="form-group">
-          <label>Job Title 1</label>
-          <input type="text" id="inputJob1" value="Senior Product Designer" oninput="updateResume()">
-        </div>
-        <div class="form-group">
-          <label>Company 1</label>
-          <input type="text" id="inputCompany1" value="TechCorp Inc." oninput="updateResume()">
-        </div>
-        <div class="form-group">
-          <label>Duration 1</label>
-          <input type="text" id="inputDuration1" value="2020 - Present" oninput="updateResume()">
-        </div>
-      </aside>
-      
-      <main class="preview-area">
-        <!-- Template 1: Minimalist -->
-        <div id="template-1" class="resume-page template-1" style="display: none;">
-          <header class="resume-header">
-            <h1 class="resume-name" id="t1-name">Alexander Chen</h1>
-            <p class="resume-title" id="t1-title">Senior Product Designer</p>
-            <div class="resume-contact">
-              <span id="t1-email">alex.chen@email.com</span>
-              <span id="t1-phone">(555) 123-4567</span>
-              <span id="t1-location">San Francisco, CA</span>
-            </div>
-          </header>
-          
-          <div class="resume-section">
-            <h2 class="section-title-resume">Professional Summary</h2>
-            <p class="exp-desc" id="t1-summary">Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions.</p>
-          </div>
-          
-          <div class="resume-section">
-            <h2 class="section-title-resume">Experience</h2>
-            <div class="experience-item">
-              <div class="exp-header">
-                <span class="exp-role" id="t1-job1">Senior Product Designer</span>
-                <span class="exp-date" id="t1-duration1">2020 - Present</span>
-              </div>
-              <div class="exp-company" id="t1-company1">TechCorp Inc.</div>
-              <p class="exp-desc">Lead design initiatives for core product features, collaborating with cross-functional teams to deliver seamless user experiences.</p>
-            </div>
-            <div class="experience-item">
-              <div class="exp-header">
-                <span class="exp-role">Product Designer</span>
-                <span class="exp-date">2017 - 2020</span>
-              </div>
-              <div class="exp-company">StartupXYZ</div>
-              <p class="exp-desc">Designed mobile and web applications from concept to launch. Conducted user research and usability testing.</p>
-            </div>
-          </div>
-          
-          <div class="resume-section">
-            <h2 class="section-title-resume">Skills</h2>
-            <div class="skills-list">
-              <span class="skill-tag">UI/UX Design</span>
-              <span class="skill-tag">Figma</span>
-              <span class="skill-tag">Prototyping</span>
-              <span class="skill-tag">User Research</span>
-              <span class="skill-tag">Design Systems</span>
-            </div>
-          </div>
-          
-          <div class="resume-section">
-            <h2 class="section-title-resume">Education</h2>
-            <div class="experience-item">
-              <div class="exp-header">
-                <span class="exp-role">BFA in Graphic Design</span>
-                <span class="exp-date">2017</span>
-              </div>
-              <div class="exp-company">California College of the Arts</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Template 2: Modern -->
-        <div id="template-2" class="resume-page template-2" style="display: none;">
-          <aside class="resume-sidebar">
-            <h1 class="sidebar-name" id="t2-name">Alexander Chen</h1>
-            <p class="sidebar-title" id="t2-title">Senior Product Designer</p>
-            
-            <div class="sidebar-section">
-              <h3 class="sidebar-section-title">Contact</h3>
-              <div class="contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <span id="t2-email">alex.chen@email.com</span>
-              </div>
-              <div class="contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <span id="t2-phone">(555) 123-4567</span>
-              </div>
-              <div class="contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span id="t2-location">San Francisco, CA</span>
-              </div>
-            </div>
-            
-            <div class="sidebar-section">
-              <h3 class="sidebar-section-title">Skills</h3>
-              <span class="skill-item">UI Design</span>
-              <span class="skill-item">UX Research</span>
-              <span class="skill-item">Figma</span>
-              <span class="skill-item">Prototyping</span>
-              <span class="skill-item">Design Systems</span>
-            </div>
-            
-            <div class="sidebar-section">
-              <h3 class="sidebar-section-title">Education</h3>
-              <div style="font-size: 13px; line-height: 1.5;">
-                <div style="font-weight: 600;">BFA Graphic Design</div>
-                <div style="opacity: 0.8;">CCA, 2017</div>
-              </div>
-            </div>
-          </aside>
-          
-          <main class="resume-main">
-            <section class="main-section">
-              <h2 class="main-section-title">Profile</h2>
-              <p class="exp-desc" id="t2-summary">Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions.</p>
-            </section>
-            
-            <section class="main-section">
-              <h2 class="main-section-title">Experience</h2>
-              <div class="experience-item">
-                <div class="exp-header">
-                  <span class="exp-role" id="t2-job1">Senior Product Designer</span>
-                  <span class="exp-date" id="t2-duration1">2020 - Present</span>
-                </div>
-                <div class="exp-company" id="t2-company1" style="color: var(--accent); font-weight: 500; margin-bottom: 8px;">TechCorp Inc.</div>
-                <p class="exp-desc">Lead design initiatives for core product features, collaborating with cross-functional teams.</p>
-              </div>
-              <div class="experience-item">
-                <div class="exp-header">
-                  <span class="exp-role">Product Designer</span>
-                  <span class="exp-date">2017 - 2020</span>
-                </div>
-                <div class="exp-company" style="color: var(--accent); font-weight: 500; margin-bottom: 8px;">StartupXYZ</div>
-                <p class="exp-desc">Designed mobile and web applications from concept to launch.</p>
-              </div>
-            </section>
-          </main>
-        </div>
-        
-        <!-- Template 3: Bold -->
-        <div id="template-3" class="resume-page template-3" style="display: none;">
-          <header class="resume-header">
-            <h1 class="resume-name" id="t3-name">ALEXANDER CHEN</h1>
-            <p class="resume-title" id="t3-title">Senior Product Designer</p>
-            <div class="resume-contact">
-              <span id="t3-email">alex.chen@email.com</span>
-              <span id="t3-phone">(555) 123-4567</span>
-              <span id="t3-location">San Francisco, CA</span>
-            </div>
-          </header>
-          
-          <div class="resume-body">
-            <section class="resume-section main-column">
-              <div class="summary-box" id="t3-summary">Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions.</div>
-            </section>
-            
-            <section class="resume-section">
-              <h2 class="resume-section-title">Experience</h2>
-              <div class="experience-item">
-                <div class="exp-role" id="t3-job1">Senior Product Designer</div>
-                <div class="exp-meta">
-                  <span class="exp-company" id="t3-company1">TechCorp Inc.</span>
-                  <span id="t3-duration1">2020 - Present</span>
-                </div>
-                <p class="exp-desc">Lead design initiatives for core product features, collaborating with cross-functional teams.</p>
-              </div>
-              <div class="experience-item">
-                <div class="exp-role">Product Designer</div>
-                <div class="exp-meta">
-                  <span class="exp-company">StartupXYZ</span>
-                  <span>2017 - 2020</span>
-                </div>
-                <p class="exp-desc">Designed mobile and web applications from concept to launch.</p>
-              </div>
-            </section>
-            
-            <section class="resume-section">
-              <h2 class="resume-section-title">Expertise</h2>
-              <div class="skills-grid">
-                <div>
-                  <div class="skill-category-title">Design</div>
-                  <div class="skill-list">UI/UX<br>Visual Design<br>Prototyping</div>
-                </div>
-                <div>
-                  <div class="skill-category-title">Tools</div>
-                  <div class="skill-list">Figma<br>Sketch<br>Adobe CC</div>
-                </div>
-              </div>
-            </section>
-            
-            <section class="resume-section main-column">
-              <h2 class="resume-section-title">Education</h2>
-              <div class="experience-item">
-                <div class="exp-role">BFA in Graphic Design</div>
-                <div class="exp-meta">
-                  <span class="exp-company">California College of the Arts</span>
-                  <span>2017</span>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-        
-        <!-- Template 4: Creator -->
-        <div id="template-4" class="resume-page template-4" style="display: none;">
-          <header class="resume-header">
-            <div class="avatar" id="t4-avatar">AC</div>
-            <div class="header-content">
-              <h1 class="resume-name" id="t4-name">Alexander Chen</h1>
-              <p class="resume-title" id="t4-title">Senior Product Designer</p>
-              <div class="resume-contact">
-                <span id="t4-email">alex.chen@email.com</span>
-                <span id="t4-phone">(555) 123-4567</span>
-                <span id="t4-location">San Francisco, CA</span>
-              </div>
-            </div>
-          </header>
-          
-          <div class="resume-grid">
-            <div class="left-column">
-              <section class="resume-section">
-                <h2 class="resume-section-title">About</h2>
-                <p class="exp-desc" id="t4-summary">Experienced product designer with 8+ years creating user-centered digital experiences.</p>
-              </section>
-              
-              <section class="resume-section">
-                <h2 class="resume-section-title">Skills</h2>
-                <div class="skills-list">
-                  <span class="skill-tag">UI Design</span>
-                  <span class="skill-tag">UX Research</span>
-                  <span class="skill-tag">Figma</span>
-                  <span class="skill-tag">Prototyping</span>
-                  <span class="skill-tag">Design Systems</span>
-                </div>
-              </section>
-              
-              <section class="resume-section">
-                <h2 class="resume-section-title">Education</h2>
-                <div class="experience-item" style="border-left: none; padding-left: 0;">
-                  <div class="exp-role">BFA in Design</div>
-                  <div class="exp-meta">
-                    <span class="exp-company">CCA</span>
-                    <span>2017</span>
-                  </div>
-                </div>
-              </section>
-            </div>
-            
-            <div class="right-column">
-              <section class="resume-section">
-                <h2 class="resume-section-title">Experience</h2>
-                <div class="experience-item">
-                  <div class="exp-role" id="t4-job1">Senior Product Designer</div>
-                  <div class="exp-meta">
-                    <span class="exp-company" id="t4-company1">TechCorp Inc.</span>
-                    <span id="t4-duration1">2020 - Present</span>
-                  </div>
-                  <p class="exp-desc">Lead design initiatives for core product features.</p>
-                </div>
-                <div class="experience-item">
-                  <div class="exp-role">Product Designer</div>
-                  <div class="exp-meta">
-                    <span class="exp-company">StartupXYZ</span>
-                    <span>2017 - 2020</span>
-                  </div>
-                  <p class="exp-desc">Designed mobile and web applications.</p>
-                </div>
-              </section>
-              
-              <section class="resume-section">
-                <h2 class="resume-section-title">Projects</h2>
-                <div class="project-item">
-                  <div class="project-name">Design System</div>
-                  <div class="project-desc">Component library with 500+ stars</div>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </main>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="section-header">
+      <p class="section-label">Simple Process</p>
+      <h2 class="section-title">Build Your Resume in 3 Easy Steps</h2>
     </div>
-  </div>
-  
-  <script>
-    let currentTemplate = 1;
     
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Choose a Template</h3>
+        <p class="step-desc">Browse our collection of professional templates and pick the one that matches your style and industry.</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Fill in Your Details</h3>
+        <p class="step-desc">Add your experience, education, and skills. Our guided form makes it easy to create compelling content.</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Download & Apply</h3>
+        <p class="step-desc">Preview your resume, make any final adjustments, and download as a professional PDF. Start applying!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials">
+    <div class="section-header">
+      <p class="section-label">Success Stories</p>
+      <h2 class="section-title">Loved by Job Seekers Worldwide</h2>
+    </div>
     
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-    
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-    
-    // Template functions
-    function openTemplate(num) {
-      currentTemplate = num;
-      document.getElementById('landing-page').style.display = 'none';
-      document.getElementById('template-modal').classList.add('active');
-      document.body.style.overflow = 'hidden';
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-text">"I landed my dream job at a Fortune 500 company within 2 weeks of using ResumeForge. The Modern template made my resume stand out."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <p class="testimonial-name">Sarah Mitchell</p>
+            <p class="testimonial-role">Marketing Director</p>
+          </div>
+        </div>
+      </div>
       
-      // Hide all templates
-      for (let i = 1; i <= 4; i++) {
-        document.getElementById('template-' + i).style.display = 'none';
-      }
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-text">"As a software engineer, the Technical template was perfect. Clean, professional, and highlighted my skills perfectly. Highly recommend!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DK</div>
+          <div>
+            <p class="testimonial-name">David Kim</p>
+            <p class="testimonial-role">Senior Developer</p>
+          </div>
+        </div>
+      </div>
       
-      // Show selected template
-      document.getElementById('template-' + num).style.display = 'block';
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-text">"I was struggling to fit 15 years of experience on one page. The Compact template did it beautifully. Got 3 interviews in the first week!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">EJ</div>
+          <div>
+            <p class="testimonial-name">Emily Johnson</p>
+            <p class="testimonial-role">HR Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2 class="cta-title">Ready to Land Your Dream Job?</h2>
+    <p class="cta-subtitle">Join 50,000+ job seekers who have created professional resumes with ResumeForge. It's free and takes just minutes.</p>
+    <a href="#templates" class="btn btn-primary cta-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+      </svg>
+      Create My Resume Now
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </div>
+            <span class="logo-text" style="color: white;">ResumeForge</span>
+          </a>
+          <p>Free, professional resume builder. Create ATS-friendly resumes in minutes. No signup required, no hidden fees.</p>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#templates">Templates</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#">Resume Tips</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
       
-      // Update title
-      const titles = ['The Minimalist', 'The Modern', 'The Bold', 'The Creator'];
-      document.getElementById('editor-title').textContent = titles[num - 1];
-      
-      // Show/hide website field for template 4
-      document.getElementById('website-group').style.display = num === 4 ? 'block' : 'none';
-      
-      // Update avatar for template 4
-      if (num === 4) {
-        updateAvatar();
-      }
-    }
-    
-    function showLanding() {
-      document.getElementById('landing-page').style.display = 'block';
-      document.getElementById('template-modal').classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-    
-    function updateResume() {
-      const name = document.getElementById('inputName').value;
-      const title = document.getElementById('inputTitle').value;
-      const email = document.getElementById('inputEmail').value;
-      const phone = document.getElementById('inputPhone').value;
-      const location = document.getElementById('inputLocation').value;
-      const summary = document.getElementById('inputSummary').value;
-      const job1 = document.getElementById('inputJob1').value;
-      const company1 = document.getElementById('inputCompany1').value;
-      const duration1 = document.getElementById('inputDuration1').value;
-      
-      // Update Template 1
-      document.getElementById('t1-name').textContent = name;
-      document.getElementById('t1-title').textContent = title;
-      document.getElementById('t1-email').textContent = email;
-      document.getElementById('t1-phone').textContent = phone;
-      document.getElementById('t1-location').textContent = location;
-      document.getElementById('t1-summary').textContent = summary;
-      document.getElementById('t1-job1').textContent = job1;
-      document.getElementById('t1-company1').textContent = company1;
-      document.getElementById('t1-duration1').textContent = duration1;
-      
-      // Update Template 2
-      document.getElementById('t2-name').textContent = name;
-      document.getElementById('t2-title').textContent = title;
-      document.getElementById('t2-email').textContent = email;
-      document.getElementById('t2-phone').textContent = phone;
-      document.getElementById('t2-location').textContent = location;
-      document.getElementById('t2-summary').textContent = summary;
-      document.getElementById('t2-job1').textContent = job1;
-      document.getElementById('t2-company1').textContent = company1;
-      document.getElementById('t2-duration1').textContent = duration1;
-      
-      // Update Template 3
-      document.getElementById('t3-name').textContent = name.toUpperCase();
-      document.getElementById('t3-title').textContent = title;
-      document.getElementById('t3-email').textContent = email;
-      document.getElementById('t3-phone').textContent = phone;
-      document.getElementById('t3-location').textContent = location;
-      document.getElementById('t3-summary').textContent = summary;
-      document.getElementById('t3-job1').textContent = job1;
-      document.getElementById('t3-company1').textContent = company1;
-      document.getElementById('t3-duration1').textContent = duration1;
-      
-      // Update Template 4
-      document.getElementById('t4-name').textContent = name;
-      document.getElementById('t4-title').textContent = title;
-      document.getElementById('t4-email').textContent = email;
-      document.getElementById('t4-phone').textContent = phone;
-      document.getElementById('t4-location').textContent = location;
-      document.getElementById('t4-summary').textContent = summary;
-      document.getElementById('t4-job1').textContent = job1;
-      document.getElementById('t4-company1').textContent = company1;
-      document.getElementById('t4-duration1').textContent = duration1;
-      
-      if (currentTemplate === 4) {
-        updateAvatar();
-      }
-    }
-    
-    function updateAvatar() {
-      const name = document.getElementById('inputName').value;
-      const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-      document.getElementById('t4-avatar').textContent = initials;
-    }
-    
-    function resetTemplate() {
-      document.getElementById('inputName').value = 'Alexander Chen';
-      document.getElementById('inputTitle').value = 'Senior Product Designer';
-      document.getElementById('inputEmail').value = 'alex.chen@email.com';
-      document.getElementById('inputPhone').value = '(555) 123-4567';
-      document.getElementById('inputLocation').value = 'San Francisco, CA';
-      document.getElementById('inputSummary').value = 'Experienced product designer with 8+ years creating user-centered digital experiences. Passionate about solving complex problems through elegant design solutions.';
-      document.getElementById('inputJob1').value = 'Senior Product Designer';
-      document.getElementById('inputCompany1').value = 'TechCorp Inc.';
-      document.getElementById('inputDuration1').value = '2020 - Present';
-      updateResume();
-    }
-  </script>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ResumeForge. All rights reserved.</p>
+        <p>Made with care for job seekers everywhere.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
